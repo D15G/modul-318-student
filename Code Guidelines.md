@@ -24,26 +24,26 @@ Variablen verwenden camelCase und werden gleich beim Deklarieren initialisiert.
 Variablen verwenden keine Abkürzungen. (usrGrp -> userGroup)
 
 **BEISPIEL:**
-```
+```C#
 string namingConventions = null;
 int number = null;
 ```
 
 **NOT:**
-```
+```C#
 string NamingConventions;
-string Number;
+int Number;
 ```
 
 ## Properties
 Properties sind in PascalCase geschrieben und sind Plural.
 
 **BEISPIEL:**
-```
+```C#
 public string FirstName { get; set;}
 ```
 **NOT:**
-```
+```C#
 public string firstname {get; set;}
 ```
 
@@ -54,14 +54,14 @@ Methoden fangen mit einem Verb an und beschreibt deren Funktion.
 Brackets fangen auf einer neuen Linie an.
 
 **BEISPIEL:**
-```
+```C#
 public string DoSomething ()
 {
     //code
 }
 ```
 **NOT:**
-```
+```C#
 public string haus {
     //code
 }
@@ -79,15 +79,19 @@ Bei allen public Methoden muss ein Summary und und Returns stehen.
 Klassen fangen mit einem Grossbuchstaben an und sind Singular.
 
 **BEISPIEL:**
-```
+```C#
 public class Tree
 {
     //Properties
 }
 ```
 **NOT:**
-```
-
+```C#
+public class Trees
+{
+    //Properties
+    //...
+}
 ```
 
 ## Kommentare
@@ -96,7 +100,7 @@ Kommentare sind in Deutsch geschrieben.
 Nach einem Kommentar ist KEINE Leerezeile.
 
 **BEISPIEL:**
-```
+```C#
 // Gibt den string in UPPERCASE zurück.
 DoSomething (string text)
 {
