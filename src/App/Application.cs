@@ -11,14 +11,14 @@ using SwissTransport;
 
 namespace App
 {
-    public partial class UI : Form
+    public partial class Application : Form
     {
         Transport transport = new Transport();
         Stations fromStations = new Stations();
         Stations toStations = new Stations();
         Connections connections = new Connections();
 
-        public UI()
+        public Application()
         {
             InitializeComponent();
             InitializeControls();

@@ -1,6 +1,6 @@
 ﻿namespace App
 {
-    partial class UI
+    partial class Application
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application));
             this.cboFrom = new System.Windows.Forms.ComboBox();
             this.cboTo = new System.Windows.Forms.ComboBox();
             this.btnSearchConnections = new System.Windows.Forms.Button();

@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI.cs">
+    <Compile Include="Application.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI.Designer.cs">
-      <DependentUpon>UI.cs</DependentUpon>
+    <Compile Include="Application.Designer.cs">
+      <DependentUpon>Application.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,8 +63,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI.resx">
-      <DependentUpon>UI.cs</DependentUpon>
+    <EmbeddedResource Include="Application.resx">
+      <DependentUpon>Application.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,7 +80,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\SwissTransport\SwissTransport.csproj">
+    <ProjectReference Include="..\SwissTransport\SwissTransport.csproj">
       <Project>{d0262178-a48f-4de0-807b-e76b63e39421}</Project>
       <Name>SwissTransport</Name>
     </ProjectReference>
