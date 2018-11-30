@@ -1,8 +1,20 @@
 
 # Dokumentation
 Tuan Binh Tran, 27.11.2018
- 
- 
+
+# Inhaltsverzeichnis
+* [Einleitung](#einleitung)
+* [Zweck des Dokuments](#zweck-des-dokuments)
+* [Funktionen & Bugs](#funktionen--bugs)
+  - [Zusätzliche Funktionen](#zusätzliche-funktionen)
+  - [Bekannte Bugs](#bekannte-bugs)
+* [Use Cases](#use-cases)
+* [Testfälle](#testfälle)
+* [Installationsanleitung](#installationsanleitung)
+* [GUI Mockups](#gui-mockups)
+* [Code Guidelines](#code-guidelines)
+
+
 # Einleitung
 Diese ÖV-Applikation alias  wurde als Projekt für das ÜK 318 *"Analysieren und objektbasiert programmieren mit Komponenten"* entwickelt.
 Dieses Projekt ist Open-Source und kann von jedem geforkt werden
