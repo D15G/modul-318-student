@@ -50,3 +50,5 @@ Diese GUI Mockups zeigen, wie die Vorstellung der Applikation vor Beginn der Arb
 Nur einiges wurde umgesetzt, da während der Entwicklung bessere/andere Ideen und Vorstellungen entstanden sind.
 
 # Code Guidelines
+Die Code Guidelines sind [HIER](https://github.com/tuanbinhtran/modul-318-student/blob/master/Code%20Guidelines.md) zu finden.
+
