@@ -1,5 +1,5 @@
 # Code Guidelines
-**Authors**: Tuan Binh Tran, Dominic Pohland - 28.11.2018
+**Authors**: Tuan Binh Tran, Dominic Pohland, Levin Joller - 28.11.2018
 
 # Zweck von Code Guidelines
 Die Idee von Code Guidelines sind folgende:
@@ -113,19 +113,20 @@ DoSomething (string text)
 
 ## GUI-Controls
 Folgenden Controls starten mit folgenden Prefix und danach mit einem Grossbuchstaben.
-|Control|Name|
-|-------|----|
-|Label|lbl...|
-|Button|btn...|
-|ComboBox|cbo...|
-|TextBox|txt...|
-|ListBox|lst...|
-|PictureBox|pic...|
-|Timer|tmr...|
-|RadioButton|opt...|
-|CheckBox|chk...|
-|GroupBox|grp...|
-|Panel|pnl...|
+
+Control | Name
+------------ | -------------
+Label | lbl...
+Button | btn...
+ComboBox | cbo...
+TextBox | txt...
+ListBox | lst...
+PictureBox | pic...
+Timer | tmr...
+RadioButton | opt...
+CheckBox | chk...
+GroupBox | grp...
+Panel | pnl...
 
 GUI-Events: Standard.
 
