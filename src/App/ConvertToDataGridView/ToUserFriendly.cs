@@ -52,7 +52,13 @@ namespace App.ConvertToDataGridView
             }
             catch (Exception ex)
             {
-                ShowException(ex);
+                string message =    "Die Dauer konnte nicht für die Ansicht formatiert werden.\n\n" +
+                                    "Details:\n" + ex;
+                string title = "Fehler beim Formatieren";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+
+                MessageBox.Show(message, title, buttons, icon);
             }
 
             return durationConverted;

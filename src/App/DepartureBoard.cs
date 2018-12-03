@@ -13,15 +13,32 @@ using App.ConvertToDataGridView;
 
 namespace App
 {
-    public partial class DepartureBoard : Form
+    public partial class frmDepartureBoard : Form
     {
         Transport transport = new Transport();
 
-        public DepartureBoard(string stationName, string stationId)
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void MoveForm(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        public frmDepartureBoard(string stationName, string stationId)
         {
             InitializeComponent();
             InitializeDataGridView();
-            lblStation.Text = stationName;
+            lblStation.Text = "Abfahrtstafel - " + stationName;
 
             ShowStationBoardEntries(stationName, stationId);
 
@@ -29,7 +46,7 @@ namespace App
 
         private void InitializeDataGridView()
         {
-            // code
+            datStationBoard.BorderStyle = BorderStyle.None;
         }
 
         private void ShowStationBoardEntries(string stationName, string stationId)
@@ -72,14 +89,14 @@ namespace App
             return false;
         }
 
-        private void datStationBoard_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        ////////////////////
+        // GUI Events
+        //
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
-        private void DepartureBoard_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

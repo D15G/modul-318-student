@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 
 namespace App
 {
-    public partial class Application : Form
+    public partial class frmApplication : Form
     {
         ITransport transport = new Transport();
         List<Station> fromStations = new List<Station>();
@@ -29,7 +29,7 @@ namespace App
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private void Application_MouseDown(object sender, MouseEventArgs e)
+        private void MoveForm(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -38,10 +38,9 @@ namespace App
             }
         }
 
-        public Application()
+        public frmApplication()
         {
             InitializeComponent();
-            this.MouseDown += new MouseEventHandler(Application_MouseDown);
             InitializeControls();
             InitializeDataGrid();
         }
@@ -81,7 +80,7 @@ namespace App
             if (toStations.Count != 0)
             {
                 cboTo.DataSource = toStations;
-                cboTo.SelectedIndex = 0;
+                //cboTo.SelectedIndex = 0;
                 cboTo.DroppedDown = true;
 
                 lstFrom.DataSource = fromStations;
@@ -94,8 +93,13 @@ namespace App
             if ((fromStations.Count != 0) && (cboFrom.SelectedValue == null))
             {
                 cboFrom.DataSource = fromStations;
-                cboFrom.SelectedIndex = 0;
+                //cboFrom.SelectedIndex = 0;
                 cboFrom.DroppedDown = true;
+                //var autoComplete = new AutoCompleteStringCollection();
+                //var array = fromStations.Select(o => o.Name).ToArray();
+                //autoComplete.AddRange(array);
+
+                //cboFrom.AutoCompleteCustomSource = autoComplete;
             }          
         }
 
@@ -129,7 +133,7 @@ namespace App
         {
             try
             {
-                DepartureBoard departureBoard = new DepartureBoard(station, id);
+                frmDepartureBoard departureBoard = new frmDepartureBoard(station, id);
                 departureBoard.Show();
             }
             catch (Exception ex)
@@ -410,6 +414,12 @@ namespace App
             //{
             //    cboFrom.DroppedDown = false;
             //}
+        }
+
+        private void cboTo_TextChanged(object sender, EventArgs e)
+        {
+            toStations = GetStations(cboTo.Text);
+            ShowToStations();
         }
     }
 }
