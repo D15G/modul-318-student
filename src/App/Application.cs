@@ -50,8 +50,10 @@ namespace App
 
         private void InitializeControls()
         {
-            // FOrm
+            // Form
             this.Height = 180;
+
+            // cboFrom
             
             // lblTitle
             lblTitle.Text = this.Text;
@@ -395,14 +397,19 @@ namespace App
 
         private void cboFrom_TextChanged(object sender, EventArgs e)
         {
-            if (cboFrom.Items.Count != 0)
-            {
-                cboFrom.DropDownStyle = ComboBoxStyle.DropDown;
-            }
-            else
-            {
-                cboFrom.DropDownStyle = ComboBoxStyle.Simple;
-            }
+            fromStations = GetStations(cboFrom.Text);
+            ShowFromStations();
+
+            //cboFrom.DataSource = fromStations;
+
+            //if (toStations.Count != 0 && toStations != null)
+            //{
+            //    cboFrom.DroppedDown = true;
+            //}
+            //else
+            //{
+            //    cboFrom.DroppedDown = false;
+            //}
         }
     }
 }

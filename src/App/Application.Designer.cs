@@ -31,9 +31,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application));
             this.cboFrom = new System.Windows.Forms.ComboBox();
             this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -55,14 +55,12 @@
             this.btnFromStationBoard = new System.Windows.Forms.Button();
             this.toolTipStationBoard = new System.Windows.Forms.ToolTip(this.components);
             this.connectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datConnections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectionListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.connectionBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboFrom
@@ -70,16 +68,14 @@
             this.cboFrom.BackColor = System.Drawing.Color.Silver;
             this.cboFrom.DataSource = this.stationBindingSource;
             this.cboFrom.DisplayMember = "Name";
-            this.cboFrom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFrom.FormattingEnabled = true;
             this.cboFrom.ItemHeight = 20;
-            this.cboFrom.Location = new System.Drawing.Point(0, 0);
+            this.cboFrom.Location = new System.Drawing.Point(12, 42);
             this.cboFrom.MaxDropDownItems = 10;
             this.cboFrom.Name = "cboFrom";
-            this.cboFrom.Size = new System.Drawing.Size(258, 28);
+            this.cboFrom.Size = new System.Drawing.Size(305, 28);
             this.cboFrom.TabIndex = 0;
             this.cboFrom.ValueMember = "Id";
             this.cboFrom.TextChanged += new System.EventHandler(this.cboFrom_TextChanged);
@@ -131,34 +127,34 @@
             this.datConnections.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datConnections.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.datConnections.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datConnections.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datConnections.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.datConnections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datConnections.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datConnections.DefaultCellStyle = dataGridViewCellStyle38;
             this.datConnections.Location = new System.Drawing.Point(12, 172);
             this.datConnections.Name = "datConnections";
             this.datConnections.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datConnections.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datConnections.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.datConnections.RowHeadersVisible = false;
             this.datConnections.Size = new System.Drawing.Size(776, 266);
             this.datConnections.TabIndex = 3;
@@ -174,7 +170,7 @@
             // 
             // pnlMain
             // 
-            this.pnlMain.Controls.Add(this.panel1);
+            this.pnlMain.Controls.Add(this.cboFrom);
             this.pnlMain.Controls.Add(this.datConnections);
             this.pnlMain.Controls.Add(this.lblTitle);
             this.pnlMain.Controls.Add(this.btnMinimize);
@@ -244,7 +240,7 @@
             this.btnToStationBoard.FlatAppearance.BorderSize = 0;
             this.btnToStationBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.btnToStationBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToStationBoard.Location = new System.Drawing.Point(741, 42);
+            this.btnToStationBoard.Location = new System.Drawing.Point(741, 40);
             this.btnToStationBoard.Name = "btnToStationBoard";
             this.btnToStationBoard.Size = new System.Drawing.Size(32, 30);
             this.btnToStationBoard.TabIndex = 11;
@@ -337,7 +333,7 @@
             this.btnFromStationBoard.FlatAppearance.BorderSize = 0;
             this.btnFromStationBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.btnFromStationBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFromStationBoard.Location = new System.Drawing.Point(300, 42);
+            this.btnFromStationBoard.Location = new System.Drawing.Point(323, 40);
             this.btnFromStationBoard.Name = "btnFromStationBoard";
             this.btnFromStationBoard.Size = new System.Drawing.Size(32, 30);
             this.btnFromStationBoard.TabIndex = 4;
@@ -348,14 +344,6 @@
             // connectionBindingSource
             // 
             this.connectionBindingSource.DataSource = typeof(SwissTransport.Connection);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cboFrom);
-            this.panel1.Location = new System.Drawing.Point(17, 42);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(258, 28);
-            this.panel1.TabIndex = 15;
             // 
             // Application
             // 
@@ -379,7 +367,6 @@
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.connectionBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -406,7 +393,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel panel1;
     }
 }
 
