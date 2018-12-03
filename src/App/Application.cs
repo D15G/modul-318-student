@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
 using App.ConvertToDataGridView;
+using System.Runtime.InteropServices;
 
 namespace App
 {
@@ -18,24 +19,59 @@ namespace App
         List<Station> fromStations = new List<Station>();
         List<Station> toStations = new List<Station>();
         List<Connection> connections = new List<Connection>();
+        bool isArrivalTime = false;
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Application_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
 
         public Application()
         {
             InitializeComponent();
+            this.MouseDown += new MouseEventHandler(Application_MouseDown);
             InitializeControls();
             InitializeDataGrid();
         }
 
+
+
         private void InitializeControls()
         {
+            // FOrm
+            this.Height = 180;
+            
+            // lblTitle
+            lblTitle.Text = this.Text;
+            
             // lstForm
             lstFrom.DisplayMember = "Name";
             lstFrom.ValueMember = "Id";
+
+            // dtpTime
+            dtpTime.Value = DateTime.Now;
+
+
+            // dtpDate
+            dtpDate.Value = DateTime.Now;
         }
 
         private void InitializeDataGrid()
         {
             datConnections.Visible = false;
+            datConnections.BorderStyle = BorderStyle.None;
         }
 
         private void ShowToStations()
@@ -53,7 +89,7 @@ namespace App
 
         private void ShowFromStations()
         {
-            if (fromStations.Count != 0)
+            if ((fromStations.Count != 0) && (cboFrom.SelectedValue == null))
             {
                 cboFrom.DataSource = fromStations;
                 cboFrom.SelectedIndex = 0;
@@ -65,18 +101,42 @@ namespace App
         {
             ToUserFriendly toUserFriendly = new ToUserFriendly();
 
-            var connectionList = from connection in connections
-                          select new
-                          {
-                              Dauer         = toUserFriendly.ConvertDuration(connection.Duration), // ConvertDurationToTimeSpan(connection.Duration)., 
-                              Von           = connection.From.Station.Name,
-                              Abfahrtszeit  = Convert.ToDateTime(connection.From.Departure), 
-                              Nach          = connection.To.Station.Name,
-                              Ankunftszeit  = Convert.ToDateTime(connection.To.Arrival)
-                          };
-            datConnections.DataSource = connectionList.ToList();
-            datConnections.Refresh();
-            datConnections.Visible = true;
+            if (connections.Count != 0)
+            {
+                var connectionList = from connection in connections
+                                     select new
+                                     {
+                                         Dauer = toUserFriendly.ConvertDuration(connection.Duration), // ConvertDurationToTimeSpan(connection.Duration)., 
+                                         Von = connection.From.Station.Name,
+                                         Abfahrtszeit = Convert.ToDateTime(connection.From.Departure).ToString("hh:MM"),
+                                         Nach = connection.To.Station.Name,
+                                         Ankunftszeit = Convert.ToDateTime(connection.To.Arrival).ToString("hh:MM")
+                                     };
+                datConnections.DataSource = connectionList.ToList();
+                datConnections.Refresh();
+                datConnections.Visible = true;
+                this.Height = 450;
+            }
+            else
+            {
+                datConnections.Visible = false;
+                this.Height = 180;
+            }
+        }
+        private void ShowStationBoard(string station, string id)
+        {
+            try
+            {
+                DepartureBoard departureBoard = new DepartureBoard(station, id);
+                departureBoard.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Station ist ungültig.\n\n" +
+                                "Details:\n" + ex,
+                                "Ungültig",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private List<Station> GetStations(string query)
@@ -110,7 +170,10 @@ namespace App
 
             if (stationsNotNullOrWhiteSpaces)
             {
-                connections = transport.GetConnections(fromStation, toStation).ConnectionList;
+                string time = dtpTime.Value.ToString("hh:MM");
+                string date = dtpDate.Value.ToString("dd-MM-yyyy");
+                
+                connections = transport.GetConnections(fromStation, toStation, time, date, Convert.ToInt32(isArrivalTime)).ConnectionList;
             }
 
             return connections;
@@ -138,6 +201,24 @@ namespace App
                 return true;
             }
             return false;
+        }
+
+        private void SetToStation()
+        {
+            if ((lstFrom.Visible == true))
+            {
+                if (lstFrom.Text != txtFrom.Text)
+                {
+                    lstFrom.Visible = false;
+                    txtFrom.Text = lstFrom.Text;
+                }
+                //if (lstFrom.Items.Count > 0)
+                //{
+                //    lstFrom.SelectedIndex = 0;
+                //    lstFrom.Visible = false;
+                //    txtFrom.Text = lstFrom.Text;
+                //}
+            }
         }
 
         // 
@@ -195,19 +276,13 @@ namespace App
 
         private void lstFrom_Enter(object sender, EventArgs e)
         {
-            txtFrom.Text = lstFrom.Text;
+            //SetFirstAsToStation();
+
         }
 
         private void lstFrom_Leave(object sender, EventArgs e)
         {
-            txtFrom.Text = lstFrom.Text;
-            lstFrom.Visible = false;
-        }
-
-        private void btnFromStationBoard_Click(object sender, EventArgs e)
-        {
-            DepartureBoard departureBoard = new DepartureBoard(cboFrom.Text, cboFrom.SelectedValue.ToString());
-            departureBoard.Show();
+            SetToStation();
         }
 
         private void txtFrom_Leave(object sender, EventArgs e)
@@ -259,8 +334,75 @@ namespace App
 
         private void lstFrom_Click(object sender, EventArgs e)
         {
-            
-            
+            SetToStation();
+        }
+
+        private void Application_Load(object sender, EventArgs e)
+        {
+            //this.ControlBox = false;
+            //this.Text = String.Empty;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
+
+        private void btnIsArrivalTime_Click(object sender, EventArgs e)
+        {
+            if (isArrivalTime)
+            {
+                isArrivalTime = false;
+                btnIsArrivalTime.Text = "Abfahrtszeit";
+            }
+            else
+            {
+                isArrivalTime = true;
+                btnIsArrivalTime.Text = "Ankunftszeit";
+            }
+        }
+
+        private void btnFromStationBoard_Click(object sender, EventArgs e)
+        {
+            if (cboFrom.SelectedValue != null)
+            {
+                ShowStationBoard(cboFrom.Text, cboFrom.SelectedValue.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Die Abfahrtsstation ist ungültig.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        private void btnToStationBoard_Click(object sender, EventArgs e)
+        {
+            if (cboTo.SelectedValue != null)
+            {
+                ShowStationBoard(cboTo.Text, cboTo.SelectedValue.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Die Zielstation ist ungültig.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void cboFrom_TextChanged(object sender, EventArgs e)
+        {
+            if (cboFrom.Items.Count != 0)
+            {
+                cboFrom.DropDownStyle = ComboBoxStyle.DropDown;
+            }
+            else
+            {
+                cboFrom.DropDownStyle = ComboBoxStyle.Simple;
+            }
         }
     }
 }

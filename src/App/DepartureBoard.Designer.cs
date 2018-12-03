@@ -44,9 +44,13 @@
             // 
             // datStationBoard
             // 
+            this.datStationBoard.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datStationBoard.BackgroundColor = System.Drawing.Color.White;
+            this.datStationBoard.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datStationBoard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datStationBoard.Location = new System.Drawing.Point(12, 44);
             this.datStationBoard.Name = "datStationBoard";
+            this.datStationBoard.RowHeadersVisible = false;
             this.datStationBoard.Size = new System.Drawing.Size(776, 394);
             this.datStationBoard.TabIndex = 2;
             this.datStationBoard.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datStationBoard_CellContentClick);
@@ -55,13 +59,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.datStationBoard);
             this.Controls.Add(this.lblStation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DepartureBoard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Abfahrtstafel";
+            this.Load += new System.EventHandler(this.DepartureBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datStationBoard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

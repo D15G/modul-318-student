@@ -76,5 +76,10 @@ namespace App
         {
 
         }
+
+        private void DepartureBoard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

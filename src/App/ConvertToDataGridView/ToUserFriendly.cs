@@ -10,10 +10,10 @@ namespace App.ConvertToDataGridView
     public class ToUserFriendly
     {        
         /// <summary>
-        /// Wandelt den string Duration Wert in einen "benutzerfreundlichen" string
+        /// Wandelt den string Duration Wert in einen "benutzerfreundlichen" string um
         /// </summary>
         /// <param name="duration"></param>
-        /// <returns></returns>
+        /// <returns>z.B. 1 d 5 h 35 min</returns>
         public string ConvertDuration(string duration)
         {
             string durationConverted = null;
