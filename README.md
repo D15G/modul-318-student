@@ -30,15 +30,18 @@ Folgende Funktionen sind umgesetzt:
  - Verbindungen zwischen zwei gültigen Stationen werden angezeigt.
  - Eine Abfahrtstafel einer bestimmten Station kann angezeigt werden.
  - Für die Verbindungen kann ein beliebiger Zeitpunkt gesetzt werden.
- - Eine Station kann auf der Karte gesucht werden.
- - Es können alle Stationen in der Nähe der aktuellen Station angezeigt werden.
- - Gefundene Resultate können via Mail weitergeleitet werden.
 
 ## Zusätzliche Funktionen
 Diese zusätzliche Funktionen sind nicht in den vorgegebenen Anforderungen zu finden.
 
 Folgende zusätzliche Funktionen sind umgesetzt:
  - Der aktuelle Standort kann ermittelt werden und die nächstgelegene Station 
+ 
+# Nicht implementierte Funktionen
+Folgende Funktionen sind *nicht* umgesetzt:
+ - Eine Station kann auf der Karte gesucht werden.
+ - Es können alle Stationen in der Nähe der aktuellen Station angezeigt werden.
+ - Gefundene Resultate können via Mail weitergeleitet werden.
 
 ## Bekannte Bugs
 Folgende Bugs sind bekannt:
@@ -52,8 +55,9 @@ Placeholder
 Placeholder
 
 # Installationsanleitung
-Fork zum selber builden
-Installationssetup
+Um die Applikation auszuführen kann im Release(LINK) Tab, der Setup heruntergeladen werden.
+
+Alternativ kann von diesem Repo geklont und selber gebuilded werden.
 
 
 # GUI Mockups
