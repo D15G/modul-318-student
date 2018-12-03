@@ -53,13 +53,22 @@ namespace App
             this.Height = 180;
 
             // cboFrom
-            
+
             // lblTitle
             lblTitle.Text = this.Text;
             
-            // lstForm
-            lstFrom.DisplayMember = "Name";
-            lstFrom.ValueMember = "Id";
+            // lstFromStations
+            lstFromStations.DisplayMember = "Name";
+            lstFromStations.ValueMember = "Id";
+            lstFromStations.BringToFront();
+            lstFromStations.Visible = false;
+
+
+            // lstToStations
+            lstToStations.DisplayMember = "Name";
+            lstToStations.ValueMember = "Id";
+            lstToStations.BringToFront();
+            lstToStations.Visible = false;
 
             // dtpTime
             dtpTime.Value = DateTime.Now;
@@ -77,37 +86,38 @@ namespace App
 
         private void ShowToStations()
         {
-            if (toStations.Count != 0)
+            if (toStations.Count > 0 && txtToStation.Focused == true)
             {
-                cboTo.DataSource = toStations;
-                //cboTo.SelectedIndex = 0;
-                cboTo.DroppedDown = true;
-
-                lstFrom.DataSource = fromStations;
+                lstToStations.BringToFront();
+                lstToStations.DataSource = toStations;
+                lstToStations.Visible = true;
+            }
+            else
+            {
+                lstToStations.Visible = false;
             }
 
         }
 
         private void ShowFromStations()
         {
-            if ((fromStations.Count != 0) && (cboFrom.SelectedValue == null))
+            if (fromStations.Count > 0 && txtFromStation.Focused == true)
             {
-                cboFrom.DataSource = fromStations;
-                //cboFrom.SelectedIndex = 0;
-                cboFrom.DroppedDown = true;
-                //var autoComplete = new AutoCompleteStringCollection();
-                //var array = fromStations.Select(o => o.Name).ToArray();
-                //autoComplete.AddRange(array);
-
-                //cboFrom.AutoCompleteCustomSource = autoComplete;
-            }          
+                lstFromStations.BringToFront();
+                lstFromStations.DataSource = fromStations;
+                lstFromStations.Visible = true;
+            }
+            else
+            {
+                lstFromStations.Visible = false;
+            }
         }
 
         private void ShowConnections()
         {
             ToUserFriendly toUserFriendly = new ToUserFriendly();
 
-            if (connections.Count != 0)
+            if (connections.Count > 0)
             {
                 var connectionList = from connection in connections
                                      select new
@@ -211,136 +221,142 @@ namespace App
 
         private void SetToStation()
         {
-            if ((lstFrom.Visible == true))
+            if ((lstToStations.Visible == true))
             {
-                if (lstFrom.Text != txtFrom.Text)
+                if (lstToStations.Text != txtToStation.Text)
                 {
-                    lstFrom.Visible = false;
-                    txtFrom.Text = lstFrom.Text;
+                    lstToStations.Visible = false;
+                    txtToStation.Text = lstToStations.Text;
                 }
-                //if (lstFrom.Items.Count > 0)
-                //{
-                //    lstFrom.SelectedIndex = 0;
-                //    lstFrom.Visible = false;
-                //    txtFrom.Text = lstFrom.Text;
-                //}
+            }
+        }
+
+        private void SetFromStation()
+        {
+            if ((lstFromStations.Visible == true))
+            {
+                if (lstFromStations.Text != txtFromStation.Text)
+                {
+                    lstFromStations.Visible = false;
+                    txtFromStation.Text = lstFromStations.Text;
+                }
             }
         }
 
         // 
         // GUI-Events
         //
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void btnSearchConnections_Click(object sender, EventArgs e)
         {
-            fromStations = GetStations(cboFrom.Text);
-            toStations = GetStations(cboTo.Text);
-            ShowFromStations();
-            ShowToStations();
+            lstToStations.Visible = false;
+            lstFromStations.Visible = false;
+            btnSearchConnections.Focus();
 
-            connections = GetConnections(cboFrom.Text, cboTo.Text);
+            //if (lstFromStations.SelectedValue == null)
+            //{
+            //    fromStations = GetStations(txtFromStation.Text);
+            //}
+            //if (lstToStations.SelectedValue == null)
+            //{
+            //    toStations = GetStations(txtToStation.Text);
+            //}
+
+            connections = GetConnections(txtFromStation.Text, txtToStation.Text);
             ShowConnections();
         }
 
-        private void btnBinh_Click(object sender, EventArgs e)
+        private void txtFromStation_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(datConnections.Columns[0].HeaderText);
+            tmrFromStation.Stop();
+            tmrFromStation.Start();
+            fromStations.Clear();
+            
         }
 
-        private void cboFrom_Click(object sender, EventArgs e)
+        private void txtToStation_TextChanged(object sender, EventArgs e)
         {
-            cboFrom.SelectAll();
+            toStations = GetStations(txtToStation.Text);
+            ShowToStations();
         }
 
-        private void cboTo_Click(object sender, EventArgs e)
+        private void txtFromStation_Leave(object sender, EventArgs e)
         {
-            cboFrom.SelectAll();
-        }
-
-        private void lstFrom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ////if (lstFrom.Focused == true)
-            ////{
-            //    txtFrom.Text = lstFrom.Text;
-            ////}
-        }
-
-        private void txtFrom_TextChanged(object sender, EventArgs e)
-        {
-            toStations = GetStations(txtFrom.Text);
-
-            lstFrom.DataSource = toStations;
-
-            if (toStations.Count != 0 && toStations != null)
+            //ShowFromStations();
+            tmrFromStation.Stop();
+            if (lstFromStations.Items.Count > 0)
             {
-                lstFrom.Visible = true;
-            }
-            else
-            {
-                lstFrom.Visible = false;
-            }
-        }
-
-        private void lstFrom_Enter(object sender, EventArgs e)
-        {
-            //SetFirstAsToStation();
-
-        }
-
-        private void lstFrom_Leave(object sender, EventArgs e)
-        {
-            SetToStation();
-        }
-
-        private void txtFrom_Leave(object sender, EventArgs e)
-        {
-            if (lstFrom.Items.Count != 0)
-            {
-                if (txtFrom.Text != lstFrom.Text && lstFrom.Focused == false)
+                if (txtFromStation.Text != lstFromStations.Text && lstFromStations.Focused == false)
                 {
-                    txtFrom.Text = lstFrom.Text;
-                    lstFrom.Visible = false;
+                    txtFromStation.Text = lstFromStations.Text;
+                    lstFromStations.Visible = false;
+                }
+            }
+        }
+
+        private void txtToStation_Leave(object sender, EventArgs e)
+        {
+            //ShowToStations();
+            tmrToStation.Stop();
+            if (lstToStations.Items.Count > 0)
+            {
+                if (txtToStation.Text != lstToStations.Text && lstToStations.Focused == false)
+                {
+                    txtToStation.Text = lstToStations.Text;
+                    lstToStations.Visible = false;
                 }
             }
         }
 
         private void txtFrom_KeyDown(object sender, KeyEventArgs e)
         {
-            if (txtFrom.Focused)
+            if (txtFromStation.Focused)
             {
-                if (lstFrom.Items.Count != 0)
+                if (lstFromStations.Items.Count != 0)
                 {
-                    //if ((lstFrom.SelectedIndex != (lstFrom.Items.Count-1)) 
-                    //    && (e.KeyCode == Keys.Down))
-                    //{
-                    //        lstFrom.SelectedIndex++;
-                    //}
-                    //if ((lstFrom.SelectedIndex != 0) 
-                    //    && (e.KeyCode == Keys.Up))
-                    //{
-                    //        lstFrom.SelectedIndex--;
-                    //}
-
-                    if (e.KeyCode == Keys.Down)
+                    if ((lstFromStations.SelectedIndex != (lstFromStations.Items.Count - 1))
+                        && (e.KeyCode == Keys.Down))
                     {
-                        lstFrom.Focus();
+                        lstFromStations.SelectedIndex++;
+                    }
+                    if ((lstFromStations.SelectedIndex != 0)
+                        && (e.KeyCode == Keys.Up))
+                    {
+                        lstFromStations.SelectedIndex--;
                     }
                 }
 
                 if (e.KeyCode == Keys.Enter)
                 {
-                    txtFrom.Text = lstFrom.Text;
+                    txtFromStation.Text = lstFromStations.Text;
                 }
             }
         }
 
-        private void txtFrom_Click(object sender, EventArgs e)
+        private void txtFromStation_Click(object sender, EventArgs e)
         {
-            txtFrom.SelectAll();
+            txtFromStation.SelectAll();
+            ShowFromStations();
         }
 
-        private void lstFrom_Click(object sender, EventArgs e)
+        private void lstFromStations_Click(object sender, EventArgs e)
         {
-            SetToStation();
+            lstFromStations.Visible = false;
+            txtFromStation.Text = lstFromStations.Text;
+        }
+
+        private void lstFromStations_Leave(object sender, EventArgs e)
+        {
+            SetFromStation();
         }
 
         private void Application_Load(object sender, EventArgs e)
@@ -366,9 +382,9 @@ namespace App
 
         private void btnFromStationBoard_Click(object sender, EventArgs e)
         {
-            if (cboFrom.SelectedValue != null)
+            if (lstFromStations.SelectedValue != null)
             {
-                ShowStationBoard(cboFrom.Text, cboFrom.SelectedValue.ToString());
+                ShowStationBoard(lstFromStations.Text, lstFromStations.SelectedValue.ToString());
             }
             else
             {
@@ -379,9 +395,9 @@ namespace App
 
         private void btnToStationBoard_Click(object sender, EventArgs e)
         {
-            if (cboTo.SelectedValue != null)
+            if (lstToStations.SelectedValue != null)
             {
-                ShowStationBoard(cboTo.Text, cboTo.SelectedValue.ToString());
+                ShowStationBoard(lstToStations.Text, lstToStations.SelectedValue.ToString());
             }
             else
             {
@@ -389,37 +405,62 @@ namespace App
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void txtToStation_Enter(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void cboFrom_TextChanged(object sender, EventArgs e)
-        {
-            fromStations = GetStations(cboFrom.Text);
-            ShowFromStations();
-
-            //cboFrom.DataSource = fromStations;
-
-            //if (toStations.Count != 0 && toStations != null)
-            //{
-            //    cboFrom.DroppedDown = true;
-            //}
-            //else
-            //{
-            //    cboFrom.DroppedDown = false;
-            //}
-        }
-
-        private void cboTo_TextChanged(object sender, EventArgs e)
-        {
-            toStations = GetStations(cboTo.Text);
+            txtToStation.SelectAll();
             ShowToStations();
+        }
+
+        private void txtToStation_Click(object sender, EventArgs e)
+        {
+            txtToStation.SelectAll();
+            ShowToStations();
+        }
+
+        private void txtFromStation_Enter(object sender, EventArgs e)
+        {
+            txtFromStation.SelectAll();
+            ShowFromStations();
+        }
+
+        private void tmrFromStation_Tick(object sender, EventArgs e)
+        {
+            tmrFromStation.Stop();
+            fromStations = GetStations(txtFromStation.Text);
+            ShowFromStations();
+        }
+
+        private void tmrToStation_Tick(object sender, EventArgs e)
+        {
+            tmrFromStation.Stop();
+            toStations = GetStations(txtToStation.Text);
+            ShowToStations();
+        }
+
+        private void btnChangeStations_Click(object sender, EventArgs e)
+        {
+            var tempStations = fromStations;
+            var tempStation = txtFromStation.Text;
+
+            fromStations = toStations;
+            txtFromStation.Text = txtToStation.Text;
+
+            toStations = tempStations;
+            txtToStation.Text = tempStation;
+
+            ShowToStations();
+            ShowFromStations();
+        }
+
+        private void lstToStations_Leave(object sender, EventArgs e)
+        {
+            SetToStation();
+        }
+
+        private void lstToStations_Click(object sender, EventArgs e)
+        {
+            lstToStations.Visible = false;
+            txtToStation.Text = lstToStations.Text;
         }
     }
 }
