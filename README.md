@@ -32,10 +32,11 @@ Im diesem Dokument wurde der Prozess dokumentiert.
 
 # Funktionen & Bugs
 Folgende Funktionen sind umgesetzt:
- - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen während der Eingabe. 
+ - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen während der Eingabe. (Wenn nach ca. 1 Sek. nicht mehr eingegeben wird)
  - Verbindungen zwischen zwei gültigen Stationen werden angezeigt.
  - Eine Abfahrtstafel einer bestimmten Station kann angezeigt werden.
  - Für die Verbindungen kann ein beliebiger Zeitpunkt gesetzt werden.
+ - Die Location der gültigen Station kann aufgerufen werden.
 
 ## Zusätzliche Funktionen
 Diese zusätzliche Funktionen sind nicht in den vorgegebenen Anforderungen zu finden.
