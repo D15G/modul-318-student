@@ -153,16 +153,7 @@ namespace App
                 datConnections.Refresh();
                 datConnections.Visible = true;
 
-
-                //datConnections.ColumnHeadersHeight = 10;
                 this.Height = 450;
-                //int addHeight = datConnections.RowTemplate.Height * datConnections.Rows.Count;
-
-                //if (this.Height != (this.Height + addHeight))
-                //{
-                //    this.Height += addHeight;
-                //}
-
             }
             else
             {
@@ -327,18 +318,6 @@ namespace App
                     btnFromStationBoard.Visible = true;
                 }
             }
-            //if (lstFromStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
-            //{
-            //    if (txtFromStation.Text != lstFromStations.Text && lstFromStations.Focused == false)
-            //    {
-            //        txtFromStation.Text = lstFromStations.Text;
-            //        lstFromStations.Visible = false;
-            //    }
-            //}
-            //if (lstFromStations.Focused == true || txtFromStation.Focused == true)
-            //{
-            //    lstFromStations.Visible = false;
-            //}
         }
 
         private void txtToStation_Leave(object sender, EventArgs e)
@@ -359,19 +338,6 @@ namespace App
                     btnToStationBoard.Visible = true;
                 }
             }
-            //if (lstToStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
-            //{
-            //    if (txtToStation.Text != lstToStations.Text && lstToStations.Focused == false)
-            //    {
-            //        txtToStation.Text = lstToStations.Text;
-            //        lstToStations.Visible = false;
-            //    }
-            //    lstToStations.Visible = true;
-            //}
-            //if (lstToStations.Text == txtToStation.Text)
-            //{
-            //    lstToStations.Visible = false;
-            //}
         }
 
         private void txtFrom_KeyDown(object sender, KeyEventArgs e)
@@ -419,13 +385,6 @@ namespace App
         private void lstFromStations_Leave(object sender, EventArgs e)
         {
             lstFromStations.Visible = true;
-        }
-
-        private void Application_Load(object sender, EventArgs e)
-        {
-            //this.ControlBox = false;
-            //this.Text = String.Empty;
-            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void btnIsArrivalTime_Click(object sender, EventArgs e)
@@ -526,11 +485,6 @@ namespace App
 
             ShowToStations();
             ShowFromStations();
-        }
-
-        private void lstToStations_Leave(object sender, EventArgs e)
-        {
-            //SetToStation();
         }
 
         private void lstToStations_Click(object sender, EventArgs e)
