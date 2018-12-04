@@ -9,7 +9,8 @@ Folgende Schritte werden durchgeführt um die Applikation zu installieren:
 3. Danach erscheint der Wizard und man klickt auf Next:
 ![install_step_1](https://github.com/tuanbinhtran/modul-318-student/blob/master/docs/installation_step_1.png "Installation - Step 1")
 
-4. Hier kann der gewünschte Pfad ausgewählt werden und ob, die Applikation für Alle oder nur für den User ersichtlich ist. Danach wird auf `Next` gedrückt:
+4. Der gewünschte Installationspfad kann gesetzt werden, die Applikation für Alle oder nur für den User ersichtlich ist. Danach wird auf `Next` gedrückt:
+
 ![install_step_2](https://github.com/tuanbinhtran/modul-318-student/blob/master/docs/installation_step_2.png "Installation - Step 2")
 
 5. Nochmals auf `Next` klicken um die Installation zu starten:
