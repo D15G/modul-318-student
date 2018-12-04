@@ -53,7 +53,8 @@ Folgende Funktionen sind **nicht** umgesetzt:
 
 ## Bekannte Bugs
 Folgende Bugs sind bekannt:
- - Beim Auto-Complete kann es sein, dass das Programm freezed. 
+ - Beim Auto-Complete kann es sein, dass das Programm freezed.
+ - Andere Probleme mit Auto-Complete
 
 
 # Use Cases
@@ -65,8 +66,12 @@ Folgende Bugs sind bekannt:
 # Testfälle
 Nr.  | Ausführung | Erwartetes Ergebnis
 ---- | ---------- | -------------------
-1.| In der Von-Station `Hochdorf` eingeben und in der Nach-Station `Luzern` eingeben. Danach den Button `Verbindungen suchen` tätigen. | Es sollten nun 4 Verbindungen angezeigt werden.
-2.| Ausführung gemäss 1. Testfall und danach die ENTER-Taste oder den Button `Verbindungen suchen` tätigen. | Es sollten nun 4 Verbindungen angezeigt werden.
+1.| (Anforderung 1 & 4) In der Von-Station `Hochdorf` eingeben und in der Nach-Station `Luzern` eingeben. Danach den Button `Verbindungen suchen` tätigen. | Es sollten nun 4 Verbindungen angezeigt werden.
+2.| (Anforderung 2) Ausführung gemäss 1. Testfall und danach die ENTER-Taste oder den Button `Verbindungen suchen` tätigen. | Es sollten nun 4 Verbindungen angezeigt werden.
+3.| (Anforderung 3) In der Von oder Nach Station eine gültige Station eingeben z.B. `Hochdorf`. Danach Rechts vom Text den Button tätigen | Ein neuen Fenster mit der Abfahrtstafel erscheint.
+4.| (Anforderung 5) Alles gemäss Testfall 1, danach die Zeit oder Datum beliebig ändern und am Schluss den Button `Verbindungen suchen` tätigen. | Die Verbindungen mit der angegebenen Zeit werden aufgelistet.
+5.| (Anforderung 6) In der Von-Station `Hochdorf` eingeben und den Marker-Button Rechts tätigen. | Der Browser öffnet sich und Google Maps zeigt den Standort an.
+
 
 # GUI Mockups
 Diese GUI Mockups zeigen, wie die Vorstellung der Applikation vor Beginn der Arbeit geplant war. 
