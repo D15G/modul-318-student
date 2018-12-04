@@ -53,7 +53,14 @@ Folgende Bugs sind bekannt:
 Placeholder
 
 # Testfälle
-Placeholder
+Nr. | Ausführung | Erwartetes Ergebnis
+---- | ----------- | -------------
+1. | Bei beiden Stationen eine gültige Verbindung angeben. 
+
+z.B. Luzern und Sursee | Die Stationen sollten jeweils vorgeschlagen werden.
+
+2. | Ausführung gemäss 1. Testfall und danach die ENTER-Taste oder den Button Verbindungen suchen tätigen. | Das Fenster sollte sich am unteren Fensterrand vergrössern und die jeweiligen Verbindungen anzeigen. 
+
 
 # Installationsanleitung
 Um die Applikation auszuführen kann im Release(LINK) Tab, der Setup heruntergeladen werden.
