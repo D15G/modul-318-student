@@ -32,11 +32,11 @@ Im diesem Dokument wurde der Prozess dokumentiert.
 
 # Funktionen & Bugs
 Folgende Funktionen sind umgesetzt:
- - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen während der Eingabe. (Wenn nach ca. 1 Sek. nicht mehr eingegeben wird)
- - Verbindungen zwischen zwei gültigen Stationen werden angezeigt.
- - Eine Abfahrtstafel einer bestimmten Station kann angezeigt werden.
- - Für die Verbindungen kann ein beliebiger Zeitpunkt gesetzt werden.
- - Die Location der gültigen Station kann aufgerufen werden.
+ - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen während der Eingabe. (Wenn nach ca. 1 Sek. nicht mehr eingegeben wird) (Anforderung 1 & 4)
+ - Verbindungen zwischen zwei gültigen Stationen werden angezeigt. (Anforderung 2)
+ - Eine Abfahrtstafel einer bestimmten Station kann angezeigt werden. (Anforderung 3)
+ - Für die Verbindungen kann ein beliebiger Zeitpunkt gesetzt werden. (Anforderung 5)
+ - Der Standort der gültigen Station kann abgerufen werden. (Anforderung 6)
 
 ## Zusätzliche Funktionen
 Diese zusätzliche Funktionen sind nicht in den vorgegebenen Anforderungen zu finden.
@@ -44,10 +44,10 @@ Diese zusätzliche Funktionen sind nicht in den vorgegebenen Anforderungen zu fi
 Folgende zusätzliche Funktionen sind umgesetzt:
  - Beide Stationen können getauscht werden. 
  - Der Zeitpunkt kann als Abfahrtszeit sowie auch Ankunftszeit angegeben werden. 
+ - Dark Mode.
  
 ## Nicht implementierte Funktionen
-Folgende Funktionen sind *nicht* umgesetzt:
- - Eine Station kann auf der Karte gesucht werden.
+Folgende Funktionen sind **nicht** umgesetzt:
  - Es können alle Stationen in der Nähe der aktuellen Station angezeigt werden.
  - Gefundene Resultate können via Mail weitergeleitet werden.
 
