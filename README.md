@@ -18,8 +18,12 @@ Tuan Binh Tran, 27.11.2018
 
 
 # Einleitung
-Diese ÖV-Applikation alias  wurde als Projekt für das ÜK 318 *"Analysieren und objektbasiert programmieren mit Komponenten"* entwickelt.
-Dieses Projekt ist Open-Source und kann von jedem geforkt werden
+Diese ÖV-Applikation wurde als Projekt für das ÜK 318 *"Analysieren und objektbasiert programmieren mit Komponenten"* entwickelt.
+Diese Dokumentation dient als Übersicht der Applikationen und beinhaltet auch gerlerntes und angewendetes Wissen.
+
+Die Daten werden von http://transport.opendata.ch abgerufen und benutzt eine bereits vorhandene APi-Schnittstelle.
+
+Dieses Projekt ist public und kann von jedem geforkt werden.
 
 
 # Zweck des Dokuments
