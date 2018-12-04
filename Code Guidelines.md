@@ -108,7 +108,12 @@ DoSomething (string text)
 }
 ```
 **NOT:**
-```
+```C#
+// Hoi zeme, ech mach eppis mega cools. 
+CooleMethode (bool tooCooltoCallthisFunction)
+{
+    // code
+} 
 ```
 
 ## GUI-Controls

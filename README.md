@@ -26,34 +26,46 @@ Diese Dokument zeigt alle Funktionen
 
 # Funktionen & Bugs
 Folgende Funktionen sind umgesetzt:
- - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen.
+ - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen während der Eingabe. 
  - Verbindungen zwischen zwei gültigen Stationen werden angezeigt.
  - Eine Abfahrtstafel einer bestimmten Station kann angezeigt werden.
  - Für die Verbindungen kann ein beliebiger Zeitpunkt gesetzt werden.
- - Eine Station kann auf der Karte gesucht werden.
- - Es können alle Stationen in der Nähe der aktuellen Station angezeigt werden.
- - Gefundene Resultate können via Mail weitergeleitet werden.
 
 ## Zusätzliche Funktionen
 Diese zusätzliche Funktionen sind nicht in den vorgegebenen Anforderungen zu finden.
 
 Folgende zusätzliche Funktionen sind umgesetzt:
- - Der aktuelle Standort kann ermittelt werden und die nächstgelegene Station 
+ - Beide Stationen können getauscht werden. 
+ - Der Zeitpunkt kann als Abfahrtszeit sowie auch Ankunftszeit angegeben werden. 
+ 
+# Nicht implementierte Funktionen
+Folgende Funktionen sind *nicht* umgesetzt:
+ - Eine Station kann auf der Karte gesucht werden.
+ - Es können alle Stationen in der Nähe der aktuellen Station angezeigt werden.
+ - Gefundene Resultate können via Mail weitergeleitet werden.
 
 ## Bekannte Bugs
 Folgende Bugs sind bekannt:
- - Bug 1
- - Known-Bug-2
+ - Beim Auto-Complete kann es sein, dass das Programm freezed. 
+
 
 # Use Cases
 Placeholder
 
 # Testfälle
-Placeholder
+Nr. | Ausführung | Erwartetes Ergebnis
+---- | ----------- | -------------
+1. | Bei beiden Stationen eine gültige Verbindung angeben. 
+
+z.B. Luzern und Sursee | Die Stationen sollten jeweils vorgeschlagen werden.
+
+2. | Ausführung gemäss 1. Testfall und danach die ENTER-Taste oder den Button Verbindungen suchen tätigen. | Das Fenster sollte sich am unteren Fensterrand vergrössern und die jeweiligen Verbindungen anzeigen. 
+
 
 # Installationsanleitung
-Fork zum selber builden
-Installationssetup
+Um die Applikation auszuführen kann im Release(LINK) Tab, der Setup heruntergeladen werden.
+
+Alternativ kann von diesem Repo geklont und selber gebuilded werden.
 
 
 # GUI Mockups
