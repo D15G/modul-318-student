@@ -5,7 +5,7 @@ Tuan Binh Tran, 27.11.2018
 # Inhaltsverzeichnis
 * [Einleitung](#einleitung)
 * [Zweck des Dokuments](#zweck-des-dokuments)
-* [Installationsanleitung](#installationsanleitung)
+* [Installationsanleitung](https://github.com/tuanbinhtran/modul-318-student/blob/master/docs/Installationsanleitung.md)
 * [Funktionen & Bugs](#funktionen--bugs)
   - [Zusätzliche Funktionen](#zusätzliche-funktionen)
   - [Nicht implementierte Funktionen](#nicht-implementierte-funktionen)
@@ -28,12 +28,7 @@ Dieses Projekt ist public und kann von jedem geforkt werden.
 
 # Zweck des Dokuments
 Dieses Dokument dient für die Projektarbeit des ÜK 318 *"Analysieren und objektbasiert programmieren mit Komponenten"*.
-Diese Dokument zeigt alle Funktionen 
-
-# Installationsanleitung
-Um die Applikation anzuwenden kann im [Release](https://github.com/tuanbinhtran/modul-318-student/releases) Tab, der Setup heruntergeladen werden. Der Installer führt den Benutzer durch den Wizard.
-
-Alternativ kann dieser Repo geklont und danach selber ein Build erstellt werden.
+Im diesem Dokument wurde der Prozess dokumentiert.
 
 # Funktionen & Bugs
 Folgende Funktionen sind umgesetzt:
