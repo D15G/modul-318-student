@@ -79,8 +79,6 @@ namespace App.ConvertToDataGridView
             {
                 dateOffset = DateTimeOffset.Parse(departureTime);
                 date = (dateOffset.DateTime + dateOffset.Offset);
-                //date = DateTime.Parse(departureTime);
-                //date.AddHours(1);
 
                 departureTimeConverted = date.ToShortTimeString();
             }

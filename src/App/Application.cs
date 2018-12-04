@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SwissTransport;
 using App.ConvertToDataGridView;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace App
 {
@@ -20,6 +21,7 @@ namespace App
         List<Station> toStations = new List<Station>();
         List<Connection> connections = new List<Connection>();
         bool isArrivalTime = false;
+        bool darkMode = false;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -52,17 +54,18 @@ namespace App
             // Form
             this.Height = 180;
 
-            // cboFrom
-
             // lblTitle
             lblTitle.Text = this.Text;
-            
+
+            // btnFromStationLocation
+            btnFromLocation.Visible = false;
+            btnFromStationBoard.Visible = false;
+
             // lstFromStations
             lstFromStations.DisplayMember = "Name";
             lstFromStations.ValueMember = "Id";
             lstFromStations.BringToFront();
             lstFromStations.Visible = false;
-
 
             // lstToStations
             lstToStations.DisplayMember = "Name";
@@ -73,7 +76,6 @@ namespace App
             // dtpTime
             dtpTime.Value = DateTime.Now;
 
-
             // dtpDate
             dtpDate.Value = DateTime.Now;
         }
@@ -82,6 +84,23 @@ namespace App
         {
             datConnections.Visible = false;
             datConnections.BorderStyle = BorderStyle.None;
+        }
+
+        private void ToggleDarkMode()
+        {
+            if (!darkMode)
+            {   // Dark mode on
+                darkMode = true;
+                btnToggleDarkMode.BackgroundImage = Properties.Resources.moon_small;
+                pnlMain.BackColor = Color.Black;
+
+            }
+            else
+            {   // Dark mode off
+                darkMode = false;
+                btnToggleDarkMode.BackgroundImage = Properties.Resources.sun_small;
+                pnlMain.BackColor = Color.White;
+            }
         }
 
         private void ShowToStations()
@@ -133,12 +152,23 @@ namespace App
                 datConnections.DataSource = connectionList.ToList();
                 datConnections.Refresh();
                 datConnections.Visible = true;
+
+
+                //datConnections.ColumnHeadersHeight = 10;
                 this.Height = 450;
+                //int addHeight = datConnections.RowTemplate.Height * datConnections.Rows.Count;
+
+                //if (this.Height != (this.Height + addHeight))
+                //{
+                //    this.Height += addHeight;
+                //}
+
             }
             else
             {
                 datConnections.Visible = false;
                 this.Height = 180;
+                MessageBox.Show("Die Station ist ungültig.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void ShowStationBoard(string station, string id)
@@ -239,6 +269,11 @@ namespace App
             }
         }
 
+        private void ShowStationLocation()
+        {
+
+        }
+
         // 
         // GUI-Events
         //
@@ -257,15 +292,6 @@ namespace App
             lstToStations.Visible = false;
             lstFromStations.Visible = false;
             btnSearchConnections.Focus();
-
-            //if (lstFromStations.SelectedValue == null)
-            //{
-            //    fromStations = GetStations(txtFromStation.Text);
-            //}
-            //if (lstToStations.SelectedValue == null)
-            //{
-            //    toStations = GetStations(txtToStation.Text);
-            //}
 
             connections = GetConnections(txtFromStation.Text, txtToStation.Text);
             ShowConnections();
@@ -287,36 +313,65 @@ namespace App
         {
             tmrFromStation.Stop();
 
-            if (lstFromStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
+            if (lstFromStations.Focused == true)
             {
-                if (txtFromStation.Text != lstFromStations.Text && lstFromStations.Focused == false)
-                {
-                    txtFromStation.Text = lstFromStations.Text;
-                    lstFromStations.Visible = false;
-                }
+                lstFromStations.Visible = true;
             }
-            if (lstFromStations.Focused == true || txtFromStation.Focused == true)
+            else
             {
                 lstFromStations.Visible = false;
+                if (lstFromStations.Text != txtFromStation.Text)
+                {
+                    txtFromStation.Text = lstFromStations.Text;
+                    btnFromLocation.Visible = true;
+                    btnFromStationBoard.Visible = true;
+                }
             }
+            //if (lstFromStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
+            //{
+            //    if (txtFromStation.Text != lstFromStations.Text && lstFromStations.Focused == false)
+            //    {
+            //        txtFromStation.Text = lstFromStations.Text;
+            //        lstFromStations.Visible = false;
+            //    }
+            //}
+            //if (lstFromStations.Focused == true || txtFromStation.Focused == true)
+            //{
+            //    lstFromStations.Visible = false;
+            //}
         }
 
         private void txtToStation_Leave(object sender, EventArgs e)
         {
             tmrToStation.Stop();
-            if (lstToStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
+
+            if (lstToStations.Focused == true)
             {
-                if (txtToStation.Text != lstToStations.Text && lstToStations.Focused == false)
-                {
-                    txtToStation.Text = lstToStations.Text;
-                    lstToStations.Visible = false;
-                }
                 lstToStations.Visible = true;
             }
-            if (lstToStations.Text == txtToStation.Text)
+            else
             {
                 lstToStations.Visible = false;
+                if (lstToStations.Text != txtToStation.Text)
+                {
+                    txtToStation.Text = lstToStations.Text;
+                    btnToLocation.Visible = true;
+                    btnToStationBoard.Visible = true;
+                }
             }
+            //if (lstToStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
+            //{
+            //    if (txtToStation.Text != lstToStations.Text && lstToStations.Focused == false)
+            //    {
+            //        txtToStation.Text = lstToStations.Text;
+            //        lstToStations.Visible = false;
+            //    }
+            //    lstToStations.Visible = true;
+            //}
+            //if (lstToStations.Text == txtToStation.Text)
+            //{
+            //    lstToStations.Visible = false;
+            //}
         }
 
         private void txtFrom_KeyDown(object sender, KeyEventArgs e)
@@ -357,11 +412,13 @@ namespace App
         {
             lstFromStations.Visible = false;
             txtFromStation.Text = lstFromStations.Text;
+            btnFromLocation.Visible = true;
+            btnFromStationBoard.Visible = true;
         }
 
         private void lstFromStations_Leave(object sender, EventArgs e)
         {
-            //SetFromStation();
+            lstFromStations.Visible = true;
         }
 
         private void Application_Load(object sender, EventArgs e)
@@ -419,18 +476,18 @@ namespace App
         private void txtToStation_Enter(object sender, EventArgs e)
         {
             txtToStation.SelectAll();
-            ShowToStations();
+            //ShowToStations();
         }
 
         private void txtFromStation_Enter(object sender, EventArgs e)
         {
             txtFromStation.SelectAll();
-            ShowFromStations();
+            //ShowFromStations();
         }
 
         private void tmrFromStation_Tick(object sender, EventArgs e)
         {
-            tmrFromStation.Stop();
+            //tmrFromStation.Stop();
             if (txtFromStation.Text != lstFromStations.Text)
             {
                 fromStations = GetStations(txtFromStation.Text);
@@ -480,6 +537,55 @@ namespace App
         {
             lstToStations.Visible = false;
             txtToStation.Text = lstToStations.Text;
+        }
+
+        private void btnFromLocation_Click(object sender, EventArgs e)
+        {
+            if (lstFromStations.SelectedValue != null)
+            {
+                double lat = fromStations[lstFromStations.SelectedIndex].Coordinate.XCoordinate;
+                double lng = fromStations[lstFromStations.SelectedIndex].Coordinate.YCoordinate;
+
+                Process.Start("https://www.google.com/maps/search/?api=1&query=" + lat + " ," + lng);
+            }
+            else
+            {
+                MessageBox.Show("Die Abfahrtsstation ist ungültig.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnToLocation_Click(object sender, EventArgs e)
+        {
+            if (lstToStations.SelectedValue != null)
+            {
+                double lat = toStations[lstToStations.SelectedIndex].Coordinate.XCoordinate;
+                double lng = toStations[lstToStations.SelectedIndex].Coordinate.YCoordinate;
+
+                Process.Start("https://www.google.com/maps/search/?api=1&query=" + lat + " ," + lng);
+            }
+            else
+            {
+                MessageBox.Show("Die Zielstation ist ungültig.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnToggleDarkMode_Click(object sender, EventArgs e)
+        {
+            ToggleDarkMode();
+        }
+
+        private void lstFromStations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstFromStations.Text == txtFromStation.Text)
+            {
+                btnFromLocation.Visible = true;
+                btnFromStationBoard.Visible = true;
+            }
+            else
+            {
+                btnFromLocation.Visible = false;
+                btnFromStationBoard.Visible = false;
+            }
         }
     }
 }
