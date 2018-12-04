@@ -65,8 +65,8 @@ Folgende Bugs sind bekannt:
 # Testfälle
 Nr.  | Ausführung | Erwartetes Ergebnis
 ---- | ---------- | -------------------
-1.| Bei beiden Stationen eine gültige Verbindung angeben. z.B. Luzern und Sursee | Die Stationen sollten jeweils vorgeschlagen werden.
-2.| Ausführung gemäss 1. Testfall und danach die ENTER-Taste oder den Button Verbindungen suchen tätigen. | Das Fenster sollte sich am unteren Fensterrand vergrössern und die jeweiligen Verbindungen anzeigen.
+1.| In der Von-Station `Hochdorf` eingeben und in der Nach-Station `Luzern` eingeben. Danach den Button `Verbindungen suchen` tätigen. | Es sollten nun 4 Verbindungen angezeigt werden.
+2.| Ausführung gemäss 1. Testfall und danach die ENTER-Taste oder den Button `Verbindungen suchen` tätigen. | Es sollten nun 4 Verbindungen angezeigt werden.
 
 # GUI Mockups
 Diese GUI Mockups zeigen, wie die Vorstellung der Applikation vor Beginn der Arbeit geplant war. 
