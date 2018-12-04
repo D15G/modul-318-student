@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\App\App.csproj">
+    <ProjectReference Include="..\..\src\App\ÖV-App.csproj">
       <Project>{9ccfb2dd-19c6-4061-85c4-1f61b0dcbebd}</Project>
-      <Name>App</Name>
+      <Name>ÖV-App</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

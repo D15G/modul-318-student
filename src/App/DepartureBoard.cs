@@ -25,6 +25,7 @@ namespace App
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        // Damit man ohne FormBorder das Fenster verschieben kann.
         private void MoveForm(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

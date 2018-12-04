@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwissTransport", "src\Swiss
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwissTransportTest", "tests\SwissTransportTest\SwissTransportTest.csproj", "{959C6E54-5B1C-40F5-938A-C57B17451421}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "src\App\App.csproj", "{9CCFB2DD-19C6-4061-85C4-1F61B0DCBEBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ÖV-App", "src\App\ÖV-App.csproj", "{9CCFB2DD-19C6-4061-85C4-1F61B0DCBEBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTest", "tests\AppTest\AppTest.csproj", "{ED61B7B3-4E36-4DA8-A66F-C9A0EBB9E9B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ÖV-AppTest", "tests\AppTest\ÖV-AppTest.csproj", "{ED61B7B3-4E36-4DA8-A66F-C9A0EBB9E9B2}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSetup", "AppSetup\AppSetup.vdproj", "{01D275E2-357E-4F96-A0E2-23CA045091CE}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ÖV-App_Installer", "AppSetup\AppSetup.vdproj", "{01D275E2-357E-4F96-A0E2-23CA045091CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

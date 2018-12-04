@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:AppSetup"
+"ProjectName" = "8:ÖV-App_Installer"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -15,44 +15,26 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_6070A2CB18F2A89A49E175D8E774BB4B"
-        "OwnerKey" = "8:_E9E0DAF36B554126951B951F0B87ADBF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6070A2CB18F2A89A49E175D8E774BB4B"
-        "OwnerKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_75CF41E18CD8EEE39D0589AEB8C6B7D2"
-        "OwnerKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_84086DB80798FD7A6A8A33E26F0EBD2F"
-        "OwnerKey" = "8:_E9E0DAF36B554126951B951F0B87ADBF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_84086DB80798FD7A6A8A33E26F0EBD2F"
-        "OwnerKey" = "8:_75CF41E18CD8EEE39D0589AEB8C6B7D2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_84086DB80798FD7A6A8A33E26F0EBD2F"
-        "OwnerKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E791C04FF43FE137CB4307B15D7934E3"
+        "OwnerKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E791C04FF43FE137CB4307B15D7934E3"
+        "OwnerKey" = "8:_EFB7336ACAC375F4D4084193F5BAF8EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E791C04FF43FE137CB4307B15D7934E3"
+        "OwnerKey" = "8:_E9E0DAF36B554126951B951F0B87ADBF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,20 +45,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6070A2CB18F2A89A49E175D8E774BB4B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_75CF41E18CD8EEE39D0589AEB8C6B7D2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_EFB7336ACAC375F4D4084193F5BAF8EF"
         "OwnerKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FD124ADEC0A06AC20A77F48E1E3F7304"
+        "OwnerKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FD124ADEC0A06AC20A77F48E1E3F7304"
+        "OwnerKey" = "8:_E9E0DAF36B554126951B951F0B87ADBF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -88,7 +70,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_84086DB80798FD7A6A8A33E26F0EBD2F"
+        "OwnerKey" = "8:_EFB7336ACAC375F4D4084193F5BAF8EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BC2B207A37854E18BE3367960B5CDCB5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E791C04FF43FE137CB4307B15D7934E3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FD124ADEC0A06AC20A77F48E1E3F7304"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -131,7 +131,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\AppSetup.msi"
+        "OutputFilename" = "8:Release\\ÖV-App-Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -141,6 +141,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -170,20 +186,20 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6070A2CB18F2A89A49E175D8E774BB4B"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E791C04FF43FE137CB4307B15D7934E3"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6070A2CB18F2A89A49E175D8E774BB4B"
+                    "_E791C04FF43FE137CB4307B15D7934E3"
                     {
-                    "Name" = "8:System.Net.Http.dll"
+                    "Name" = "8:Newtonsoft.Json.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:System.Net.Http.dll"
+            "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E0E290C50FA84678946D5092EA88DD28"
@@ -201,14 +217,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_75CF41E18CD8EEE39D0589AEB8C6B7D2"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EFB7336ACAC375F4D4084193F5BAF8EF"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:SwissTransport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_75CF41E18CD8EEE39D0589AEB8C6B7D2"
+                    "_EFB7336ACAC375F4D4084193F5BAF8EF"
                     {
                     "Name" = "8:SwissTransport.dll"
                     "Attributes" = "3:512"
@@ -232,20 +248,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_84086DB80798FD7A6A8A33E26F0EBD2F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FD124ADEC0A06AC20A77F48E1E3F7304"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_84086DB80798FD7A6A8A33E26F0EBD2F"
+                    "_FD124ADEC0A06AC20A77F48E1E3F7304"
                     {
-                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Name" = "8:System.Net.Http.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E0E290C50FA84678946D5092EA88DD28"
@@ -318,20 +334,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:AppSetup"
+        "ProductName" = "8:ÖV-App-Installer"
         "ProductCode" = "8:{DF78BD81-3127-4CA5-B753-1A3C3C7EF1E3}"
-        "PackageCode" = "8:{2289D215-96A5-4726-B153-07220F1CE660}"
+        "PackageCode" = "8:{E93C0A87-C097-4F95-8CD2-D73A5862C462}"
         "UpgradeCode" = "8:{7086406C-8467-4567-A9AA-F91F0ADF4E00}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Tuan Binh Tran"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:AppSetup"
+        "Title" = "8:ÖV-App-Installer"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Tuan Binh Tran"
         "Keywords" = "8:"

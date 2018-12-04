@@ -31,9 +31,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApplication));
             this.btnSearchConnections = new System.Windows.Forms.Button();
             this.datConnections = new System.Windows.Forms.DataGridView();
@@ -93,34 +93,34 @@
             this.datConnections.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.datConnections.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.datConnections.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datConnections.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datConnections.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.datConnections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datConnections.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datConnections.DefaultCellStyle = dataGridViewCellStyle26;
             this.datConnections.Location = new System.Drawing.Point(12, 93);
             this.datConnections.Name = "datConnections";
             this.datConnections.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datConnections.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datConnections.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.datConnections.RowHeadersVisible = false;
             this.datConnections.Size = new System.Drawing.Size(776, 318);
             this.datConnections.TabIndex = 0;
@@ -129,7 +129,6 @@
             // pnlMain
             // 
             this.pnlMain.Controls.Add(this.btnChangeStations);
-            this.pnlMain.Controls.Add(this.pnlToStation);
             this.pnlMain.Controls.Add(this.pnlFromStation);
             this.pnlMain.Controls.Add(this.datConnections);
             this.pnlMain.Controls.Add(this.btnToStationBoard);
@@ -140,6 +139,7 @@
             this.pnlMain.Controls.Add(this.btnFromStationBoard);
             this.pnlMain.Controls.Add(this.btnSearchConnections);
             this.pnlMain.Controls.Add(this.lstToStations);
+            this.pnlMain.Controls.Add(this.pnlToStation);
             this.pnlMain.Location = new System.Drawing.Point(0, 27);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(800, 423);
@@ -153,7 +153,7 @@
             this.btnChangeStations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChangeStations.FlatAppearance.BorderSize = 0;
             this.btnChangeStations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeStations.Location = new System.Drawing.Point(376, 21);
+            this.btnChangeStations.Location = new System.Drawing.Point(381, 21);
             this.btnChangeStations.Name = "btnChangeStations";
             this.btnChangeStations.Size = new System.Drawing.Size(26, 26);
             this.btnChangeStations.TabIndex = 15;
@@ -168,6 +168,7 @@
             this.pnlToStation.Name = "pnlToStation";
             this.pnlToStation.Size = new System.Drawing.Size(296, 26);
             this.pnlToStation.TabIndex = 0;
+            this.pnlToStation.TabStop = true;
             // 
             // txtToStation
             // 
@@ -183,9 +184,10 @@
             this.txtToStation.Size = new System.Drawing.Size(290, 19);
             this.txtToStation.TabIndex = 2;
             this.txtToStation.Text = "Nach";
-            this.txtToStation.Click += new System.EventHandler(this.txtToStation_Click);
+            this.txtToStation.Click += new System.EventHandler(this.txtToStation_Enter);
             this.txtToStation.TextChanged += new System.EventHandler(this.txtToStation_TextChanged);
             this.txtToStation.Enter += new System.EventHandler(this.txtToStation_Enter);
+            this.txtToStation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtToStation_KeyDown);
             this.txtToStation.Leave += new System.EventHandler(this.txtToStation_Leave);
             // 
             // pnlFromStation
@@ -196,6 +198,7 @@
             this.pnlFromStation.Name = "pnlFromStation";
             this.pnlFromStation.Size = new System.Drawing.Size(296, 26);
             this.pnlFromStation.TabIndex = 0;
+            this.pnlFromStation.TabStop = true;
             // 
             // txtFromStation
             // 
@@ -211,7 +214,7 @@
             this.txtFromStation.Size = new System.Drawing.Size(290, 19);
             this.txtFromStation.TabIndex = 0;
             this.txtFromStation.Text = "Von";
-            this.txtFromStation.Click += new System.EventHandler(this.txtFromStation_Click);
+            this.txtFromStation.Click += new System.EventHandler(this.txtFromStation_Enter);
             this.txtFromStation.TextChanged += new System.EventHandler(this.txtFromStation_TextChanged);
             this.txtFromStation.Enter += new System.EventHandler(this.txtFromStation_Enter);
             this.txtFromStation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFrom_KeyDown);
@@ -227,7 +230,8 @@
             this.btnToStationBoard.Location = new System.Drawing.Point(755, 19);
             this.btnToStationBoard.Name = "btnToStationBoard";
             this.btnToStationBoard.Size = new System.Drawing.Size(30, 30);
-            this.btnToStationBoard.TabIndex = 3;
+            this.btnToStationBoard.TabIndex = 0;
+            this.btnToStationBoard.TabStop = false;
             this.toolTipStationBoard.SetToolTip(this.btnToStationBoard, "Abfahrstafel abrufen");
             this.btnToStationBoard.UseVisualStyleBackColor = true;
             this.btnToStationBoard.Click += new System.EventHandler(this.btnToStationBoard_Click);
@@ -245,6 +249,7 @@
             this.btnIsArrivalTime.Name = "btnIsArrivalTime";
             this.btnIsArrivalTime.Size = new System.Drawing.Size(138, 26);
             this.btnIsArrivalTime.TabIndex = 4;
+            this.btnIsArrivalTime.TabStop = false;
             this.btnIsArrivalTime.Text = "Abfahrtszeit";
             this.btnIsArrivalTime.UseVisualStyleBackColor = false;
             this.btnIsArrivalTime.Click += new System.EventHandler(this.btnIsArrivalTime_Click);
@@ -302,7 +307,7 @@
             this.btnFromStationBoard.Location = new System.Drawing.Point(311, 19);
             this.btnFromStationBoard.Name = "btnFromStationBoard";
             this.btnFromStationBoard.Size = new System.Drawing.Size(30, 30);
-            this.btnFromStationBoard.TabIndex = 1;
+            this.btnFromStationBoard.TabIndex = 0;
             this.btnFromStationBoard.TabStop = false;
             this.toolTipStationBoard.SetToolTip(this.btnFromStationBoard, "Abfahrstafel abrufen");
             this.btnFromStationBoard.UseVisualStyleBackColor = true;

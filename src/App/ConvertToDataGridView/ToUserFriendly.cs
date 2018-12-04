@@ -73,10 +73,14 @@ namespace App.ConvertToDataGridView
         {
             string departureTimeConverted = null;
             DateTime date = new DateTime();
+            DateTimeOffset dateOffset = new DateTimeOffset();
 
             try
             {
-                date = DateTime.Parse(departureTime);
+                dateOffset = DateTimeOffset.Parse(departureTime);
+                date = (dateOffset.DateTime + dateOffset.Offset);
+                //date = DateTime.Parse(departureTime);
+                //date.AddHours(1);
 
                 departureTimeConverted = date.ToShortTimeString();
             }

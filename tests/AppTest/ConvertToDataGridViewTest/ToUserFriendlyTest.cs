@@ -17,15 +17,23 @@ namespace AppTest
         public void ConvertDurationTest()
         {
             toUserFriendly = new ToUserFriendly();
-            var duration = "03d10:58:15";
+            var d1 = toUserFriendly.ConvertDuration("03d10:58:15");
+            var d2 = toUserFriendly.ConvertDuration("10d00:00:00");
 
-            Assert.AreEqual("3 d 10 h 58 min", duration);
+            Assert.AreEqual("3 d 10 h 58 min", d1);
+            Assert.AreEqual("10 d", d2);
         }
 
+        [TestMethod]
         public void ConvertDepartureTime()
         {
             toUserFriendly = new ToUserFriendly();
-            //var departureTime = 
+
+            var dt1 = toUserFriendly.ConvertDepartureTime("2018-12-04T11:02:00+0100");
+            var dt2 = toUserFriendly.ConvertDepartureTime("2018-12-04T15:35:00+0500");
+
+            Assert.AreEqual("12:02", dt1);
+            Assert.AreEqual("20:35", dt2);
         }
     }
 }

@@ -119,14 +119,16 @@ namespace App
 
             if (connections.Count > 0)
             {
+                // Darstellung für DataGridView
                 var connectionList = from connection in connections
                                      select new
                                      {
-                                         Dauer = toUserFriendly.ConvertDuration(connection.Duration), // ConvertDurationToTimeSpan(connection.Duration)., 
-                                         Von = connection.From.Station.Name,
-                                         Abfahrtszeit = Convert.ToDateTime(connection.From.Departure).ToString("hh:MM"),
-                                         Nach = connection.To.Station.Name,
-                                         Ankunftszeit = Convert.ToDateTime(connection.To.Arrival).ToString("hh:MM")
+                                         Dauer          = toUserFriendly.ConvertDuration(connection.Duration),
+                                         Gleis          = connection.From.Platform,
+                                         Von            = connection.From.Station.Name,
+                                         Abfahrtszeit   = Convert.ToDateTime(connection.From.Departure).ToString("hh:MM"),
+                                         Nach           = connection.To.Station.Name,
+                                         Ankunftszeit   = Convert.ToDateTime(connection.To.Arrival).ToString("hh:MM")
                                      };
                 datConnections.DataSource = connectionList.ToList();
                 datConnections.Refresh();
@@ -167,12 +169,6 @@ namespace App
             {
                 MessageBox.Show("Die Station " + query + " wurde nicht gefunden.");
             }
-            //bool queryNotNullOrWhiteSpaces = !(String.IsNullOrWhiteSpace(query));
-
-            //if (queryNotNullOrWhiteSpaces)
-            //{
-            //    stations =  transport.GetStations(query).StationList;
-            //}
 
             return stations;
         }
@@ -279,21 +275,19 @@ namespace App
         {
             tmrFromStation.Stop();
             tmrFromStation.Start();
-            fromStations.Clear();
-            
         }
 
         private void txtToStation_TextChanged(object sender, EventArgs e)
         {
-            toStations = GetStations(txtToStation.Text);
-            ShowToStations();
+            tmrToStation.Stop();
+            tmrToStation.Start();
         }
 
         private void txtFromStation_Leave(object sender, EventArgs e)
         {
-            //ShowFromStations();
             tmrFromStation.Stop();
-            if (lstFromStations.Items.Count > 0)
+
+            if (lstFromStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
             {
                 if (txtFromStation.Text != lstFromStations.Text && lstFromStations.Focused == false)
                 {
@@ -301,51 +295,62 @@ namespace App
                     lstFromStations.Visible = false;
                 }
             }
+            if (lstFromStations.Focused == true || txtFromStation.Focused == true)
+            {
+                lstFromStations.Visible = false;
+            }
         }
 
         private void txtToStation_Leave(object sender, EventArgs e)
         {
-            //ShowToStations();
             tmrToStation.Stop();
-            if (lstToStations.Items.Count > 0)
+            if (lstToStations.Items.Count > 0 || lstFromStations.Focused == false && txtFromStation.Focused == false)
             {
                 if (txtToStation.Text != lstToStations.Text && lstToStations.Focused == false)
                 {
                     txtToStation.Text = lstToStations.Text;
                     lstToStations.Visible = false;
                 }
+                lstToStations.Visible = true;
+            }
+            if (lstToStations.Text == txtToStation.Text)
+            {
+                lstToStations.Visible = false;
             }
         }
 
         private void txtFrom_KeyDown(object sender, KeyEventArgs e)
         {
-            if (txtFromStation.Focused)
+            if ((txtFromStation.Focused) && (lstFromStations.Items.Count != 0))
             {
-                if (lstFromStations.Items.Count != 0)
+                if ((lstFromStations.SelectedIndex != (lstFromStations.Items.Count - 1))
+                    && (e.KeyCode == Keys.Down))
                 {
-                    if ((lstFromStations.SelectedIndex != (lstFromStations.Items.Count - 1))
-                        && (e.KeyCode == Keys.Down))
-                    {
-                        lstFromStations.SelectedIndex++;
-                    }
-                    if ((lstFromStations.SelectedIndex != 0)
-                        && (e.KeyCode == Keys.Up))
-                    {
-                        lstFromStations.SelectedIndex--;
-                    }
+                    lstFromStations.SelectedIndex++;
                 }
-
-                if (e.KeyCode == Keys.Enter)
+                if ((lstFromStations.SelectedIndex != 0)
+                    && (e.KeyCode == Keys.Up))
                 {
-                    txtFromStation.Text = lstFromStations.Text;
+                    lstFromStations.SelectedIndex--;
                 }
             }
         }
 
-        private void txtFromStation_Click(object sender, EventArgs e)
+        private void txtToStation_KeyDown(object sender, KeyEventArgs e)
         {
-            txtFromStation.SelectAll();
-            ShowFromStations();
+            if ((txtToStation.Focused) && (lstToStations.Items.Count != 0))
+            {
+                if ((lstToStations.SelectedIndex != (lstToStations.Items.Count - 1))
+                    && (e.KeyCode == Keys.Down))
+                {
+                    lstToStations.SelectedIndex++;
+                }
+                if ((lstToStations.SelectedIndex != 0)
+                    && (e.KeyCode == Keys.Up))
+                {
+                    lstToStations.SelectedIndex--;
+                }
+            }
         }
 
         private void lstFromStations_Click(object sender, EventArgs e)
@@ -356,7 +361,7 @@ namespace App
 
         private void lstFromStations_Leave(object sender, EventArgs e)
         {
-            SetFromStation();
+            //SetFromStation();
         }
 
         private void Application_Load(object sender, EventArgs e)
@@ -382,6 +387,9 @@ namespace App
 
         private void btnFromStationBoard_Click(object sender, EventArgs e)
         {
+            lstFromStations.Visible = false;
+            lstToStations.Visible = false;
+
             if (lstFromStations.SelectedValue != null)
             {
                 ShowStationBoard(lstFromStations.Text, lstFromStations.SelectedValue.ToString());
@@ -395,6 +403,9 @@ namespace App
 
         private void btnToStationBoard_Click(object sender, EventArgs e)
         {
+            lstFromStations.Visible = false;
+            lstToStations.Visible = false;
+
             if (lstToStations.SelectedValue != null)
             {
                 ShowStationBoard(lstToStations.Text, lstToStations.SelectedValue.ToString());
@@ -411,12 +422,6 @@ namespace App
             ShowToStations();
         }
 
-        private void txtToStation_Click(object sender, EventArgs e)
-        {
-            txtToStation.SelectAll();
-            ShowToStations();
-        }
-
         private void txtFromStation_Enter(object sender, EventArgs e)
         {
             txtFromStation.SelectAll();
@@ -426,15 +431,29 @@ namespace App
         private void tmrFromStation_Tick(object sender, EventArgs e)
         {
             tmrFromStation.Stop();
-            fromStations = GetStations(txtFromStation.Text);
-            ShowFromStations();
+            if (txtFromStation.Text != lstFromStations.Text)
+            {
+                fromStations = GetStations(txtFromStation.Text);
+                ShowFromStations();
+            }
+            else
+            {
+                lstFromStations.Visible = false;
+            }
         }
 
         private void tmrToStation_Tick(object sender, EventArgs e)
         {
             tmrFromStation.Stop();
-            toStations = GetStations(txtToStation.Text);
-            ShowToStations();
+            if (txtToStation.Text != lstToStations.Text)
+            {
+                toStations = GetStations(txtToStation.Text);
+                ShowToStations();
+            }
+            else
+            {
+                lstToStations.Visible = false;
+            }
         }
 
         private void btnChangeStations_Click(object sender, EventArgs e)
@@ -454,7 +473,7 @@ namespace App
 
         private void lstToStations_Leave(object sender, EventArgs e)
         {
-            SetToStation();
+            //SetToStation();
         }
 
         private void lstToStations_Click(object sender, EventArgs e)

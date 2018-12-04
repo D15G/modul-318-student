@@ -130,6 +130,9 @@
         Azh+ZdcBHL+BSwDHbyQCOH5Dz+dXAAAAAAAAADiw0+kXuD28xoiIu5AAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="toolTipStationBoard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>781, 17</value>
+  </metadata>
   <data name="btnToStationBoard.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -149,9 +152,6 @@
         c0L46TfGLTFHtIWGiMWC5ccBwZHhOtFliu1UrfYPPzOwpo1Hq/IAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="toolTipStationBoard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>781, 17</value>
-  </metadata>
   <data name="btnFromStationBoard.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -178,6 +178,9 @@
         dO2RtUbXHllrdO2RtUbXHllrdO2RtQYAAAAAfHT3Ap4I+kxXiVbCAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="toolTipStationBoard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>781, 17</value>
+  </metadata>
   <data name="btnClose.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAzlJREFUeF7t
