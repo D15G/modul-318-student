@@ -26,7 +26,7 @@ Diese Dokument zeigt alle Funktionen
 
 # Funktionen & Bugs
 Folgende Funktionen sind umgesetzt:
- - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen.
+ - Auto-Complete bzw. Vorschlag für die eingegebenen Stationen während der Eingabe. 
  - Verbindungen zwischen zwei gültigen Stationen werden angezeigt.
  - Eine Abfahrtstafel einer bestimmten Station kann angezeigt werden.
  - Für die Verbindungen kann ein beliebiger Zeitpunkt gesetzt werden.
@@ -35,7 +35,8 @@ Folgende Funktionen sind umgesetzt:
 Diese zusätzliche Funktionen sind nicht in den vorgegebenen Anforderungen zu finden.
 
 Folgende zusätzliche Funktionen sind umgesetzt:
- - Der aktuelle Standort kann ermittelt werden und die nächstgelegene Station 
+ - Beide Stationen können getauscht werden. 
+ - Der Zeitpunkt kann als Abfahrtszeit sowie auch Ankunftszeit angegeben werden. 
  
 # Nicht implementierte Funktionen
 Folgende Funktionen sind *nicht* umgesetzt:
@@ -45,8 +46,8 @@ Folgende Funktionen sind *nicht* umgesetzt:
 
 ## Bekannte Bugs
 Folgende Bugs sind bekannt:
- - Bug 1
- - Known-Bug-2
+ - Beim Auto-Complete kann es sein, dass das Programm freezed. 
+
 
 # Use Cases
 Placeholder
