@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.lblFrom = new System.Windows.Forms.Label();
             this.lblTo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -75,6 +76,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::App.Properties.Resources.exchange1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Location = new System.Drawing.Point(453, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 42);
@@ -107,6 +109,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Location = new System.Drawing.Point(302, 106);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(377, 28);
@@ -216,7 +219,7 @@
             this.dgtBoard.Name = "dgtBoard";
             this.dgtBoard.ReadOnly = true;
             this.dgtBoard.RowTemplate.Height = 24;
-            this.dgtBoard.Size = new System.Drawing.Size(949, 612);
+            this.dgtBoard.Size = new System.Drawing.Size(949, 363);
             this.dgtBoard.TabIndex = 13;
             // 
             // boardDeparting
@@ -242,7 +245,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(975, 831);
+            this.ClientSize = new System.Drawing.Size(975, 586);
             this.Controls.Add(this.dtpTime);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.dtpDate);
@@ -253,13 +256,14 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.lblFrom);
-            this.Controls.Add(this.dgtBoard);
             this.Controls.Add(this.dgtConnections);
+            this.Controls.Add(this.dgtBoard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "App";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Öv";
+            this.Text = "Concheck";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgtConnections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgtBoard)).EndInit();

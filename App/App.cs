@@ -13,8 +13,16 @@ namespace App
         public App()
         {
             InitializeComponent();
+            InitSettings();
+        }
+
+        private void InitSettings()
+        {
             dgtConnections.Visible = true;
             dgtBoard.Visible = false;
+
+            dtpTime.Format = DateTimePickerFormat.Custom;
+            dtpTime.CustomFormat = "HH:mm";
         }
 
         private void FillStationBoxes(object sender, EventArgs e)
@@ -34,7 +42,13 @@ namespace App
                 {
                     foreach (Station station in stationList)
                     {
-                        myInput.Items.Add(station.Name);
+                        try
+                        {
+                            myInput.Items.Add(station.Name);
+                        } catch (ArgumentNullException exc)
+                        {
+                            Console.WriteLine(exc.StackTrace);
+                        }
                     }
                 }
             }
