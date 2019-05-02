@@ -10,6 +10,9 @@ namespace App
     public partial class App : Form
     {
 
+        Dialogs dialogs = new Dialogs();
+        CheckStatements checks = new CheckStatements();
+
         public App()
         {
             InitializeComponent();
@@ -27,26 +30,25 @@ namespace App
         
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if (!cmbFrom.Text.Equals("") && !cmbTo.Text.Equals(""))
+            if (checks.CheckIfFromAndToAreEmpty(cmbFrom.Text, cmbTo.Text))
             {
                 if (!cmbFrom.Text.Equals(cmbTo.Text))
                 {
+                    lblDateAndTimeFromSearch.Text = "Verbindungen vom: " + dtpDate.Text + " ab " + dtpTime.Text;
                     GetNextConnections();
                 }
                 else
                 {
-                    MessageBox.Show("Sie haben die Station: " + cmbFrom.Text + " zweimal eingegeben!",
-                        "Beide Stationen sind gleich", MessageBoxButtons.OK, 
-                        MessageBoxIcon.Warning);
+                    dialogs.ShowStationsTheSameDialog(cmbFrom.Text);
                 }
 
-            } else if (!cmbFrom.Text.Equals("") && cmbTo.Text.Equals(""))
+            } else if (checks.CheckIfSearchingStationBoard(cmbFrom.Text, cmbTo.Text))
             {
+                lblDateAndTimeFromSearch.Text = "Aktuelle Abfahrtstabelle von " + cmbFrom.Text;
                 GetDepartementTable();
             } else
             {
-                MessageBox.Show("Sie müssen die von Station eintragen", "Von Station leer",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dialogs.ShowMissingFromStationDialog();
             }
         }
 
@@ -60,16 +62,23 @@ namespace App
             Transport transport = new Transport();
             StationBoardRoot stationBoardRoot = new StationBoardRoot();
 
-            stationBoardRoot = transport.GetStationBoard(cmbFrom.Text);
-
-            foreach (StationBoard stationBoard in stationBoardRoot.Entries)
+            // Error gets thrown when no stationboard can be found
+            try
             {
+                stationBoardRoot = transport.GetStationBoard(cmbFrom.Text);
 
-                dgtBoard.Rows.Add(Convert.ToDateTime(stationBoard.Stop.Departure).ToString("HH:mm"),
-                    stationBoard.Stop.Platform,
-                    stationBoard.To
-                    );
+                foreach (StationBoard stationBoard in stationBoardRoot.Entries)
+                {
 
+                    dgtBoard.Rows.Add(Convert.ToDateTime(stationBoard.Stop.Departure).ToString("HH:mm"),
+                        stationBoard.Stop.Platform,
+                        stationBoard.To
+                        );
+
+                }
+            } catch (Exception exc)
+            {
+                dialogs.ShowNoStationBoardFoundDialog(cmbFrom.Text);
             }
 
         }
@@ -83,31 +92,35 @@ namespace App
 
             Connections connections = new Connections();
             Transport transport = new Transport();
-            
-            // gleich ToString auf Value
-            connections = transport.GetConnections(cmbFrom.Text, cmbTo.Text, Convert.ToDateTime(dtpTime.Value).ToString("HH:mm"), Convert.ToDateTime(dtpDate.Value).ToString("yyyy-MM-dd"));
-            List<Connection> connectionList = connections.ConnectionList;
-            
-            if (connectionList.Count != 0)
-            {
 
-                foreach (Connection connection in connectionList)
+            // Error gets thrown when from or to station is an address  |   
+            // Bäckerei Café Bachmann Länderpark, Stans, Bitzistr. 2  <-|        
+            try
+            {
+                connections = transport.GetConnections(cmbFrom.Text, cmbTo.Text, dtpTime.Value.ToString("HH:mm"),
+                    dtpDate.Value.ToString("yyyy-MM-dd"));
+
+                List<Connection> connectionList = connections.ConnectionList;
+
+                if (connectionList.Count != 0)
                 {
 
-                    dgtConnections.Rows.Add(Convert.ToDateTime(connection.From.Departure).ToString("HH:mm"),
-                        connection.From.Platform,
-                        connection.To.Station.Name,
-                        Convert.ToDateTime(connection.To.Arrival).ToString("HH:mm"),
-                        connection.Duration.Remove(0, 3).Remove(5, 3) + " h");
+                    foreach (Connection connection in connectionList)
+                    {
+
+                        dgtConnections.Rows.Add(Convert.ToDateTime(connection.From.Departure).ToString("HH:mm"),
+                            connection.From.Platform,
+                            connection.To.Station.Name,
+                            Convert.ToDateTime(connection.To.Arrival).ToString("HH:mm"),
+                            connection.Duration.Remove(0, 3).Remove(5, 3) + " h");
+
+                    }
 
                 }
-
-            } else
+}
+            catch (Exception exc)
             {
-                MessageBox.Show("Zwischen den Stationen: " + cmbFrom.Text + " und "
-                    + cmbTo.Text + " wurden keine Verbindungen gefunden.",
-                    "Keine Verbindung gefunden", MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
+                dialogs.ShowNoConnectionFoundDialog(cmbFrom.Text, cmbTo.Text);
             }
         }
 
@@ -150,10 +163,21 @@ namespace App
                             Console.WriteLine(exc.StackTrace);
                         }
                     }
+
+                    // Clears combobox leaves input and puts cursor on string end
                     myInput.Items.Clear();
                     myInput.Text = inputText;
                     myInput.Select(inputText.Length, 0);
-                    myInput.Items.AddRange(stationNames.ToArray());
+
+                    try
+                    {
+                        myInput.Items.AddRange(stationNames.ToArray());
+                    } catch(ArgumentNullException ex)
+                    {
+                        Console.WriteLine(ex.StackTrace);
+                    }
+
+                    
                 }
             }
         }
