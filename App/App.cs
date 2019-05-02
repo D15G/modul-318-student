@@ -24,35 +24,6 @@ namespace App
             dtpTime.Format = DateTimePickerFormat.Custom;
             dtpTime.CustomFormat = "HH:mm";
         }
-
-        private void FillStationBoxes(object sender, EventArgs e)
-        {
-            Transport transport = new Transport();
-            Stations stations = new Stations();
-            ComboBox myInput = (ComboBox)sender;
-
-            if (myInput.Text.Length >= 2)
-            {
-
-                stations = transport.GetStations(myInput.Text);
-
-                List<Station> stationList = stations.StationList;
-
-                if (stationList.Count > 1)
-                {
-                    foreach (Station station in stationList)
-                    {
-                        try
-                        {
-                            myInput.Items.Add(station.Name);
-                        } catch (ArgumentNullException exc)
-                        {
-                            Console.WriteLine(exc.StackTrace);
-                        }
-                    }
-                }
-            }
-        }
         
         private void BtnSearch_Click(object sender, EventArgs e)
         {
@@ -149,5 +120,42 @@ namespace App
             cmbTo.Text = from;
         }
 
+        private void Autocomplete_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Transport transport = new Transport();
+            Stations stations = new Stations();
+            ComboBox myInput = (ComboBox)sender;
+
+            myInput.DroppedDown = true;
+
+            if (myInput.Text.Length >= 2)
+            {
+                stations = transport.GetStations(myInput.Text);
+
+                List<Station> stationList = stations.StationList;
+                List<string> stationNames = new List<string>();
+                string inputText = myInput.Text;
+
+                if (stationList.Count > 1)
+                {
+                    foreach (Station station in stationList)
+                    {
+                        try
+                        {
+                            stationNames.Add(station.Name);
+                        }
+                        catch (ArgumentNullException exc)
+                        {
+                            Console.WriteLine(exc.StackTrace);
+                        }
+                    }
+                    myInput.Items.Clear();
+                    myInput.Text = inputText;
+                    myInput.Select(inputText.Length, 0);
+                    string[] stationNamesArray = stationNames.ToArray();
+                    myInput.Items.AddRange(stationNamesArray);
+                }
+            }
+        }
     }
 }

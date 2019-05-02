@@ -87,25 +87,22 @@
             // 
             // cmbFrom
             // 
-            this.cmbFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbFrom.FormattingEnabled = true;
             this.cmbFrom.Location = new System.Drawing.Point(50, 48);
             this.cmbFrom.Name = "cmbFrom";
             this.cmbFrom.Size = new System.Drawing.Size(245, 24);
             this.cmbFrom.TabIndex = 5;
-            this.cmbFrom.TextUpdate += new System.EventHandler(this.FillStationBoxes);
+            this.cmbFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Autocomplete_KeyPress);
             // 
             // cmbTo
             // 
-            this.cmbTo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbTo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbTo.Cursor = System.Windows.Forms.Cursors.Default;
             this.cmbTo.FormattingEnabled = true;
             this.cmbTo.Location = new System.Drawing.Point(685, 48);
             this.cmbTo.Name = "cmbTo";
             this.cmbTo.Size = new System.Drawing.Size(245, 24);
             this.cmbTo.TabIndex = 6;
-            this.cmbTo.TextUpdate += new System.EventHandler(this.FillStationBoxes);
+            this.cmbTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Autocomplete_KeyPress);
             // 
             // btnSearch
             // 
