@@ -268,7 +268,7 @@
             this.pbToMap.Size = new System.Drawing.Size(32, 32);
             this.pbToMap.TabIndex = 17;
             this.pbToMap.TabStop = false;
-            this.pbToMap.Click += new System.EventHandler(this.Map_Click);
+            //this.pbToMap.Click += new System.EventHandler(this.Map_Click);
             // 
             // pbFromMap
             // 
@@ -278,7 +278,7 @@
             this.pbFromMap.Size = new System.Drawing.Size(32, 32);
             this.pbFromMap.TabIndex = 16;
             this.pbFromMap.TabStop = false;
-            this.pbFromMap.Click += new System.EventHandler(this.Map_Click);
+            //this.pbFromMap.Click += new System.EventHandler(this.Map_Click);
             // 
             // pictureBox2
             // 
