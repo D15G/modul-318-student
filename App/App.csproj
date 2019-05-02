@@ -93,5 +93,23 @@
       <Name>SwissTransport</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thomas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exchange-arrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\train-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maps-and-flags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maps-and-flags1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maps-and-flags %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

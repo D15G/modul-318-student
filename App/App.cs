@@ -181,5 +181,16 @@ namespace App
                 }
             }
         }
+        /*
+        private void Map_Click(object sender, EventArgs e)
+        {
+            StringBuilder location = new StringBuilder("http://maps.google.com/maps?q=&#8221");
+            if (cmb) {
+            location.Append
+
+            System.Diagnostics.Process.Start(location.ToString());
+
+        }
+        */
     }
 }
