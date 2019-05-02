@@ -92,7 +92,7 @@
             this.cmbFrom.Name = "cmbFrom";
             this.cmbFrom.Size = new System.Drawing.Size(245, 24);
             this.cmbFrom.TabIndex = 5;
-            this.cmbFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Autocomplete_KeyPress);
+            this.cmbFrom.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Autocomplete_KeyUp);
             // 
             // cmbTo
             // 
@@ -102,7 +102,7 @@
             this.cmbTo.Name = "cmbTo";
             this.cmbTo.Size = new System.Drawing.Size(245, 24);
             this.cmbTo.TabIndex = 6;
-            this.cmbTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Autocomplete_KeyPress);
+            this.cmbTo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Autocomplete_KeyUp);
             // 
             // btnSearch
             // 
@@ -253,8 +253,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.lblFrom);
-            this.Controls.Add(this.dgtConnections);
             this.Controls.Add(this.dgtBoard);
+            this.Controls.Add(this.dgtConnections);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

@@ -84,7 +84,7 @@ namespace App
             Connections connections = new Connections();
             Transport transport = new Transport();
             
-
+            // gleich ToString auf Value
             connections = transport.GetConnections(cmbFrom.Text, cmbTo.Text, Convert.ToDateTime(dtpTime.Value).ToString("HH:mm"), Convert.ToDateTime(dtpDate.Value).ToString("yyyy-MM-dd"));
             List<Connection> connectionList = connections.ConnectionList;
             
@@ -120,13 +120,14 @@ namespace App
             cmbTo.Text = from;
         }
 
-        private void Autocomplete_KeyPress(object sender, KeyPressEventArgs e)
+        private void Autocomplete_KeyUp(object sender, KeyEventArgs e)
         {
             Transport transport = new Transport();
             Stations stations = new Stations();
             ComboBox myInput = (ComboBox)sender;
 
             myInput.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
 
             if (myInput.Text.Length >= 2)
             {
@@ -152,8 +153,7 @@ namespace App
                     myInput.Items.Clear();
                     myInput.Text = inputText;
                     myInput.Select(inputText.Length, 0);
-                    string[] stationNamesArray = stationNames.ToArray();
-                    myInput.Items.AddRange(stationNamesArray);
+                    myInput.Items.AddRange(stationNames.ToArray());
                 }
             }
         }
