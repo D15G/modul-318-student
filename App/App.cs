@@ -220,6 +220,9 @@ namespace App
                 mapsRoute.Append(cmbFrom.Text + "/" + cmbTo.Text);
                 System.Diagnostics.Process.Start(mapsRoute.ToString());
 
+            } else
+            {
+                dialogs.ShowBothStationsMustBeFilledDialog();
             }
 
         }
@@ -235,12 +238,18 @@ namespace App
 
                 List<string> dgtContent = GetConnectionContent();
 
-                mailSender.SendMail(mailDialog.from,
-                    mailDialog.to,
-                    mailDialog.password,
-                    mailDialog.smtpServer,
-                    mailDialog.smtpPort,
-                    dgtContent);
+                try
+                {
+                    mailSender.SendMail(mailDialog.from,
+                        mailDialog.to,
+                        mailDialog.password,
+                        mailDialog.smtpServer,
+                        mailDialog.smtpPort,
+                        dgtContent);
+                } catch (Exception exc)
+                {
+                    dialogs.ShowInvalidInputDialog();
+                }
             }
         }
 

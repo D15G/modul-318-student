@@ -16,7 +16,7 @@ namespace App
         public string from = "";
         public string to = "";
         public string password;
-        public string smtpServer;
+        public string smtpServer = "";
         public int smtpPort;
 
         public MailDialog()
@@ -47,17 +47,18 @@ namespace App
                     break;
             }
 
-            if (smtpPort == -1 && smtpServer.Equals(""))
+            if ((smtpPort == -1 && smtpServer.Equals("")) || txtMailAddress.Text.Equals("") || txtMailTo.Text.Equals(""))
             {
-
+                Dialogs dialogs = new Dialogs();
+                dialogs.ShowInvalidInputDialog();
             } else
             {
                 from = txtMailAddress.Text;
                 to = txtMailTo.Text;
                 password = txtMailPassword.Text;
-            }
 
-            this.Close();
+                this.Close();
+            }
 
         }
     }

@@ -37,6 +37,15 @@ namespace App
         }
 
         /// <summary>
+        /// Shows warning dialog if email input is invalid
+        /// </summary>
+        public void ShowInvalidInputDialog()
+        {
+            MessageBox.Show("Die Eingaben zur Email versendung sind ungültig", "Eingaben nicht korrekt",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        /// <summary>
         /// Shows warning dialog if from station is empty
         /// </summary>
         public void ShowMissingFromStationDialog()
@@ -55,5 +64,13 @@ namespace App
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Shows information dialog if from and to station is empty
+        /// </summary>
+        public void ShowBothStationsMustBeFilledDialog()
+        {
+            MessageBox.Show("Von und Nach Station muss gefüllt sein", "Stationen nicht komplett",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
