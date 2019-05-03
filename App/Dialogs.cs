@@ -45,10 +45,15 @@ namespace App
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        internal void ShowNoStationBoardFoundDialog(string station)
+        /// <summary>
+        /// Shows information dialog if no stationboard found
+        /// </summary>
+        /// <param name="station"></param>
+        public void ShowNoStationBoardFoundDialog(string station)
         {
             MessageBox.Show("Keine Abfahrtstafel für: " + station + " gefunden", "Keine Abfahrtstafel gefunden",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }

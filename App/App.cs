@@ -12,6 +12,7 @@ namespace App
 
         Dialogs dialogs = new Dialogs();
         CheckStatements checks = new CheckStatements();
+        
 
         public App()
         {
@@ -23,6 +24,7 @@ namespace App
         {
             dgtConnections.Visible = true;
             dgtBoard.Visible = false;
+            btnSendMail.Enabled = false;
 
             dtpTime.Format = DateTimePickerFormat.Custom;
             dtpTime.CustomFormat = "HH:mm";
@@ -58,6 +60,7 @@ namespace App
 
             dgtConnections.Visible = false;
             dgtBoard.Visible = true;
+            btnSendMail.Enabled = false;
 
             Transport transport = new Transport();
             StationBoardRoot stationBoardRoot = new StationBoardRoot();
@@ -89,6 +92,7 @@ namespace App
 
             dgtConnections.Visible = true;
             dgtBoard.Visible = false;
+            btnSendMail.Enabled = true;
 
             Connections connections = new Connections();
             Transport transport = new Transport();
@@ -181,16 +185,82 @@ namespace App
                 }
             }
         }
-        /*
-        private void Map_Click(object sender, EventArgs e)
-        {
-            StringBuilder location = new StringBuilder("http://maps.google.com/maps?q=&#8221");
-            if (cmb) {
-            location.Append
 
-            System.Diagnostics.Process.Start(location.ToString());
+        private void MapFrom_Click(object sender, EventArgs e)
+        {
+            StringBuilder location = new StringBuilder("https://www.google.com/maps/?q=");
+            if (!cmbFrom.Text.Equals("")) {
+
+                location.Append(cmbFrom.Text);
+                System.Diagnostics.Process.Start(location.ToString());
+
+            }
+        }
+
+        private void MapTo_Click(object sender, EventArgs e)
+        {
+            StringBuilder location = new StringBuilder("https://www.google.com/maps/?q=");
+            if (!cmbTo.Text.Equals(""))
+            {
+
+                location.Append(cmbTo.Text);
+                System.Diagnostics.Process.Start(location.ToString());
+
+            }
+        }
+
+        private void BtnGoogleMaps_Click(object sender, EventArgs e)
+        {
+
+            StringBuilder mapsRoute = new StringBuilder("https://www.google.com/maps/dir/");
+
+            if (checks.CheckIfFromAndToAreEmpty(cmbFrom.Text, cmbTo.Text))
+            {
+
+                mapsRoute.Append(cmbFrom.Text + "/" + cmbTo.Text);
+                System.Diagnostics.Process.Start(mapsRoute.ToString());
+
+            }
 
         }
-        */
+
+        private void BtnSendMail_Click(object sender, EventArgs e)
+        {
+
+                MailSender mailSender = new MailSender();
+                MailDialog mailDialog = new MailDialog();
+                mailDialog.ShowDialog(this);
+
+            if (!mailDialog.from.Equals("") || !mailDialog.to.Equals("")) {
+
+                List<string> dgtContent = GetConnectionContent();
+
+                mailSender.SendMail(mailDialog.from,
+                    mailDialog.to,
+                    mailDialog.password,
+                    mailDialog.smtpServer,
+                    mailDialog.smtpPort,
+                    dgtContent);
+            }
+        }
+
+        private List<string> GetConnectionContent()
+        {
+            List<string> content = new List<string>();
+            content.Add("Abfahrt, Gleis Abfahrt, Endstation, Ankunft, Fahrdauer");
+            foreach (DataGridViewRow row in dgtConnections.Rows)
+            {
+                string departure = row.Cells[0].Value.ToString();
+                string platformDeparture = row.Cells[1].Value.ToString();
+                string endStation = row.Cells[2].Value.ToString();
+                string arrival = row.Cells[3].Value.ToString();
+                string totalDrivingTime = row.Cells[4].Value.ToString();
+
+                content.Add(departure + " " + platformDeparture + " " + endStation + " " + arrival + " " + totalDrivingTime);
+            }
+
+            return content;
+        }
     }
 }
+

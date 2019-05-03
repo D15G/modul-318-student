@@ -53,10 +53,20 @@
     </Compile>
     <Compile Include="CheckStatements.cs" />
     <Compile Include="Dialogs.cs" />
+    <Compile Include="MailDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailDialog.Designer.cs">
+      <DependentUpon>MailDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailSender.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailDialog.resx">
+      <DependentUpon>MailDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
